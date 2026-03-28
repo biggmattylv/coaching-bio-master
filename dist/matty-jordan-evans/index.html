@@ -5,27 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matthew Jordan Evans | CoachingBio.com</title>
     <style>
-        :root { --primary: #005A9C; --secondary: #A5ACAF; --white: #FFFFFF; --bg: #f8f9fa; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: #1a1a1a; margin: 0; padding: 0; }
-        .container { max-width: 900px; margin: 40px auto; background: var(--white); border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        :root { --primary: #005A9C; --secondary: #A5ACAF; --white: #FFFFFF; --bg: #f8f9fa; --accent: #FFD700; }
+        body { font-family: 'Outfit', sans-serif; background: #f0f2f5; color: #1a1a1a; margin: 0; padding: 20px; min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; background: var(--white); border-radius: 32px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        /* Hero Section - The Hook (Solid Brand Color) */
-        .hero { background: var(--primary); color: white; text-align: center; padding: 80px 40px; }
-        .hero h1 { margin: 0; font-size: 3em; font-weight: 800; letter-spacing: -1px; }
-        .hero p { margin: 10px 0 0; text-transform: uppercase; letter-spacing: 3px; font-size: 1em; opacity: 0.9; }
+        /* Hero Section - The Hook */
+        .hero { background: linear-gradient(135deg, #005A9C 0%, #003060 100%); color: white; text-align: center; padding: 80px 40px; }
+        .hero h1 { margin: 0; font-size: 2.5em; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; }
+        .hero p { margin: 5px 0 0; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9em; color: var(--accent); }
         
         /* Content Section */
         .content { padding: 40px; }
-        .service-card { border: 1px solid #f0f0f0; padding: 30px; border-radius: 20px; margin-bottom: 20px; transition: transform 0.2s; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
-        .service-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .service-card h2 { font-size: 1.4em; margin: 0; color: var(--primary); }
-        .service-card p { font-size: 1em; color: #555; margin: 10px 0 0; }
-        .num { font-weight: 900; color: var(--secondary); font-size: 0.9em; margin-bottom: 10px; display: block; }
+        .service-card { border: none; padding: 25px; border-radius: 20px; margin-bottom: 20px; background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .service-card h2 { font-size: 1.3em; margin: 0; color: #1a1a1a; border-left: 4px solid var(--accent); padding-left: 15px; }
+        .service-card p { font-size: 1em; color: #666; margin: 10px 0 0 19px; line-height: 1.6; }
         
         /* Action Area */
-        .actions { display: flex; gap: 20px; justify-content: center; padding: 40px; }
-        .link-btn { padding: 18px 40px; text-align: center; background: var(--primary); color: white; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: background 0.2s; }
-        .link-btn:hover { background: #004a80; }
+        .actions { display: flex; gap: 15px; justify-content: center; padding: 30px; background: #fdfdfd; }
+        .link-btn { padding: 18px 30px; text-align: center; background: linear-gradient(to right, #005A9C, #0073e6); color: white; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1em; box-shadow: 0 10px 15px rgba(0,90,156,0.3); transition: transform 0.2s; }
+        .link-btn:hover { transform: translateY(-3px); }
     </style>
 </head>
 <body>
@@ -38,19 +36,17 @@
         <main class="content">
             <div class="services">
                 <div class="service-card">
-                    <span class="num">01.</span>
                     <h2>Personal Hitting Lessons</h2>
                     <p>One-on-one cage sessions to refine your swing mechanics.</p>
                 </div>
                 <div class="service-card">
-                    <span class="num">02.</span>
                     <h2>Group Training</h2>
                     <p>Dynamic group sessions focused on hitting fundamentals.</p>
                 </div>
             </div>
             
             <div class="actions">
-                <a href="tel:7025265733" class="link-btn">CALL ME</a>
+                <a href="tel:7025265733" class="link-btn">CALL COACH</a>
                 <a href="mailto:mj1010101369@gmail.com" class="link-btn">EMAIL ME</a>
             </div>
         </main>
