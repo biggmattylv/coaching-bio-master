@@ -1,0 +1,8 @@
+<svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Minimalist Coach Head Icon -->
+  <circle cx="40" cy="50" r="30" fill="#005A9C" />
+  <rect x="25" y="45" width="30" height="10" fill="#FFFFFF" rx="2" />
+  
+  <!-- Branding Text -->
+  <text x="85" y="55" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#005A9C">CoachingBio.com</text>
+</svg>

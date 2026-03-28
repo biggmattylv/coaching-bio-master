@@ -1,0 +1,7 @@
+{
+  "Dodgers": { "--primary": "#005A9C", "--secondary": "#A5ACAF" },
+  "Yankees": { "--primary": "#003087", "--secondary": "#E4002B" },
+  "Lakers": { "--primary": "#552583", "--secondary": "#FDB927" },
+  "Raiders": { "--primary": "#000000", "--secondary": "#A5ACAF" },
+  "GoldenKnights": { "--primary": "#B4975A", "--secondary": "#333F42" }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Coach Profile | CoachingBio.com</title>
+    <style>
+        :root { --primary: #005A9C; --secondary: #A5ACAF; --white: #FFFFFF; --bg: #f8f9fa; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), var(--primary); color: white; }
+        h1 { margin: 10px 0; font-size: 2em; }
+        .title { color: var(--secondary); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9em; font-weight: bold; }
+        .content { padding: 30px; }
+        .card { background: #fff; border: 1px solid #eee; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+        h2 { color: var(--primary); font-size: 1.2em; border-left: 4px solid var(--primary); padding-left: 10px; margin-top: 0; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        .btn { display: block; background: var(--primary); color: white; padding: 12px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="name">{{coach_name}}</h1>
+            <p class="title">{{coach_title}}</p>
+        </header>
+        <main class="content">
+            <div class="card">
+                <h2>Resources</h2>
+                <div class="grid">
+                    <!-- Dynamic Modules Grid -->
+                    {{module_buttons}}
+                </div>
+            </div>
+            <div class="card">
+                <h2>Admin Power</h2>
+                <a href="{{tidycal_link}}" class="btn" style="background: var(--secondary);">Book a Session</a>
+            </div>
+            <div class="card">
+                <h2>About</h2>
+                <p>{{bio_text}}</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

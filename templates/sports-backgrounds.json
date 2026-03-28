@@ -1,0 +1,6 @@
+{
+  "Baseball": "url('../assets/Baseball Field.png')",
+  "Soccer": "url('../assets/Soccer Field.png')",
+  "Boxing": "url('../assets/Boxing Ring.png')",
+  "Default": "var(--primary)"
+}
