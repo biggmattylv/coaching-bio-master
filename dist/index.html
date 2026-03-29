@@ -22,11 +22,10 @@
         .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1000px; margin: 40px auto; padding: 20px; }
         .pillar { background: white; padding: 30px; border-radius: 20px; border-left: 5px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .pillar h3 { color: var(--primary); margin-top: 0; }
-        
-        /* CTA */
-        .cta { text-align: center; padding: 60px 20px; }
-        .btn { padding: 25px 60px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 1.4em; background: var(--accent); color: var(--primary); transition: 0.3s; box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3); }
-        .btn:hover { background: #e6c200; transform: scale(1.05); }
+
+        /* Form Embed */
+        .intake-form { max-width: 900px; margin: 40px auto; background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+        .intake-form h2 { color: var(--primary); margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -58,8 +57,9 @@
         </div>
     </section>
 
-    <div class="cta">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBWLvQ0Yc-inmY93KI2JWnILfWVnT2AWYpG7wADECspW1qow/viewform?usp=header" class="btn">GET YOUR GRAND SLAM CARD</a>
+    <div class="intake-form">
+        <h2>Get Your Grand Slam Card</h2>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfBWLvQ0Yc-inmY93KI2JWnILfWVnT2AWYpG7wADECspW1qow/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
 </body>
 </html>
