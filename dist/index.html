@@ -3,63 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoachingBio.com | Stop Losing Sessions</title>
+    <title>CoachingBio.com | Elevate Your Game</title>
     <style>
-        :root { --primary: #005A9C; --accent: #FFD700; --bg: #f4f7f6; --text: #1a1a1a; }
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+        :root { --primary: #005A9C; --accent: #FFD700; --text: #1a1a1a; }
         body { font-family: 'Outfit', sans-serif; background: #f0f2f5; color: var(--text); margin: 0; padding: 0; }
-        
+
         /* Hero */
-        .hero { background: linear-gradient(135deg, #005A9C 0%, #003060 100%); color: white; text-align: center; padding: 80px 20px; }
-        .hero h1 { font-size: 3.5em; font-weight: 900; letter-spacing: -2px; margin: 0; text-transform: uppercase; }
-        .hero p { font-size: 1.5em; margin: 15px 0 30px; opacity: 0.9; }
-        
-        /* Value Story */
-        .story { max-width: 800px; margin: 40px auto; padding: 40px; background: white; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
-        .story h2 { color: var(--primary); font-size: 2em; margin-bottom: 20px; }
-        .price-box { font-size: 1.5em; font-weight: 800; color: var(--primary); margin: 20px 0; padding: 20px; border: 2px dashed var(--accent); border-radius: 12px; }
-        
-        /* Pillars */
-        .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1000px; margin: 40px auto; padding: 20px; }
-        .pillar { background: white; padding: 30px; border-radius: 20px; border-left: 5px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .pillar h3 { color: var(--primary); margin-top: 0; }
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover; background-position: center; color: white; text-align: center; padding: 120px 20px; 
+        }
+        .hero h1 { font-size: 4em; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: -2px; }
+        .hero p { font-size: 1.5em; margin: 10px 0 0; color: var(--accent); font-weight: 700; }
+
+        /* Accordion Style FAQ/Modules */
+        .module-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        details { background: white; margin-bottom: 15px; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        summary { font-weight: 800; font-size: 1.2em; cursor: pointer; list-style: none; color: var(--primary); }
+        details p { margin-top: 15px; color: #555; line-height: 1.6; }
 
         /* Form Embed */
-        .intake-form { max-width: 900px; margin: 40px auto; background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
-        .intake-form h2 { color: var(--primary); margin-bottom: 20px; }
+        .intake-form { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 24px; text-align: center; }
     </style>
 </head>
 <body>
     <header class="hero">
-        <h1>Stop Losing Sessions.</h1>
-        <p>One missed session costs you $120. Two cost you $240. That's a year of Admin Power paid for in a single afternoon.</p>
+        <h1>STOP LOSING SESSIONS</h1>
+        <p>Pro coaching tools for elite coaches.</p>
     </header>
 
-    <div class="story">
-        <h2>Professionalize Your Coaching.</h2>
-        <p>Your "sterile" resume isn't cutting it anymore. You need a mobile-first digital card that proves you're a pro, automates your scheduling, and locks in your revenue before you even step on the field.</p>
-        <div class="price-box">
-            $50 Setup + $19.99/mo (Grand Slam All-Access)
-        </div>
+    <div class="module-container">
+        <details>
+            <summary>♦ Admin Power ($15)</summary>
+            <p>Full TidyCal + Payment setup. Stop chasing Venmo and start booking automatically.</p>
+        </details>
+        <details>
+            <summary>♦ The 9-Pillar Grand Slam ($7.50 ea)</summary>
+            <p>Choose from our library: Recruiting, Mental Game, Nutrition, Practice Plans, and more.</p>
+        </details>
+        <details>
+            <summary>♦ The "Grand Slam" Subscription ($19.99/mo)</summary>
+            <p>Everything we offer. Total hands-free business management. Pay once, own the whole system.</p>
+        </details>
     </div>
 
-    <section class="pillars">
-        <div class="pillar">
-            <h3>Elite Bio Card</h3>
-            <p>Mobile-optimized, professional-grade digital profile that converts parents instantly.</p>
-        </div>
-        <div class="pillar">
-            <h3>Admin Power</h3>
-            <p>Full TidyCal integration + automated payment processing. No more flakes, no more chasing Venmo.</p>
-        </div>
-        <div class="pillar">
-            <h3>Grand Slam Library</h3>
-            <p>Unlock all 9 pillars of coaching success: Recruiting, Mindset, Nutrition, Practice Plans, and more.</p>
-        </div>
-    </section>
-
     <div class="intake-form">
-        <h2>Get Your Grand Slam Card</h2>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfBWLvQ0Yc-inmY93KI2JWnILfWVnT2AWYpG7wADECspW1qow/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <h2>Ready to build your profile?</h2>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfBWLvQ0Yc-inmY93KI2JWnILfWVnT2AWYpG7wADECspW1qow/viewform?embedded=true" width="100%" height="800" frameborder="0">Loading…</iframe>
     </div>
 </body>
 </html>
