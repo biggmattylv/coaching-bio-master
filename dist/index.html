@@ -3,141 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoachingBio.com | THE WINNING EDGE</title>
-    <meta property="og:title" content="CoachingBio.com | THE WINNING EDGE">
-    <meta property="og:description" content="Build your team, build your brand. The Admin Power System for Elite Baseball Coaches.">
-    <meta property="og:image" content="/assets/thumbnail-page.jpeg">
-    <meta property="og:url" content="https://coachingbio.com">
+    <title>The Winning Edge | CoachingBio</title>
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="The Winning Edge | CoachingBio">
+    <meta property="og:description" content="I’m a baseball dad, and I got tired of watching my coach lose money. I built the system to fix it.">
+    <meta property="og:image" content="https://coachingbio.com/assets/winning-edge-social.png">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
-        :root { --primary: #002244; --accent: #FF5E5E; --text: #1a1a1a; --white: #FFFFFF; --bg: #EAEAEA; }
-        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
-        
-        .top-bar { height: 35px; background: #fff; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 0.9em; font-weight: 700; border-bottom: 1px solid #eee; }
-        .top-bar input { border: 1px solid #ccc; border-radius: 4px; padding: 2px 8px; font-size: 0.9em; }
-
-        .hero { 
-            max-width: 800px;
-            margin: 0 auto 50px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/field-hero.png'); 
-            background-size: cover; background-position: center; color: white; text-align: center; padding: 120px 20px; 
-            clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
-        }
-        .hero h1 { font-size: 3.5em; font-weight: 900; text-transform: uppercase; margin: 0; color: #fff; }
-        .hero p { font-size: 1.2em; margin: 20px 0; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; color: var(--white); }
-
-        .problem-section { max-width: 800px; margin: 0 auto 50px; padding: 0 20px; text-align: center; }
-        .problem-section h2 { font-size: 2.5em; font-weight: 900; color: var(--primary); margin-bottom: 20px; }
-        .problem-section p { font-size: 1.2em; line-height: 1.6; }
-
-        .module-preview { max-width: 900px; margin: 0 auto 40px; padding: 40px; background: var(--white); border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; }
-        .module-preview h2 { font-size: 2.2em; font-weight: 800; color: var(--primary); margin: 0 0 20px 0; }
-        .module-preview p { color: #555; font-size: 1.1em; line-height: 1.5; margin-bottom: 30px; }
-        
-        .btn-modules { display: inline-block; background: var(--accent); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; text-transform: uppercase; }
-
-        .brand-hero-section { max-width: 900px; margin: 50px auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
-        .pillar-card { padding: 20px; }
-        .pillar-card img { width: 60px; height: 60px; margin-bottom: 15px; }
-        .pillar-card h3 { font-size: 1.4em; color: var(--primary); margin: 0 0 10px 0; }
-        .pillar-card p { font-size: 0.95em; color: #555; }
-        
-        .intake-form { max-width: 900px; margin: 40px auto; padding: 40px; border-radius: 24px; background: var(--accent); color: var(--white); text-align: center; }
-        .intake-form h2 { font-size: 2.5em; font-weight: 900; margin-bottom: 10px; color: #fff; }
-        .intake-form p { color: #fff; font-weight: bold; margin-bottom: 30px; }
-        
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; }
-        .form-field { margin-bottom: 15px; }
-        .form-field.full-width { grid-column: span 2; }
-        .form-field label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9em; color: #fff; }
-        .form-field input, .form-field textarea, .form-field select {
-            width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 8px; font-size: 1em; background: rgba(255,255,255,0.1); color: #fff; box-sizing: border-box;
-        }
-        .form-submit-btn {
-            grid-column: span 2;
-            padding: 15px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
+        :root { --accent: #38bdf8; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1517649763964-0c96d59b6991?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
-<body>
-    <div class="top-bar">
-        <span>Find My Coach</span>
-        <form action="/directory.html" method="GET" style="display: flex;">
-            <input type="text" name="q" placeholder="Your Location">
-        </form>
-    </div>
-    <header class="hero">
-        <h1>STOP LOSING SESSIONS.</h1>
-        <p>You were hired to coach, not to play secretary. <br>The Admin Power System for Elite Baseball Coaches is here.</p>
-    </header>
-
-    <div class="problem-section">
-        <h2>YOUR TIME IS ON THE FIELD, NOT ON YOUR PHONE.</h2>
-        <p>Every hour you spend scheduling, chasing payments, or drafting emails for parents is an hour you’re not teaching the game. We fix that.</p>
-    </div>
-
-    <div class="module-preview">
-        <h2>YOUR DIGITAL AUTHORITY CARD</h2>
-        <p>Claim Your Digital Authority Card: A professional, interactive digital asset that builds your brand and lets parents call, text, or email you instantly.</p>
-        <br>
-        <a href="/modules.html" class="btn-modules">Explore All Modules</a>
-        <a href="/premium-sample-card.html" class="btn-modules" style="margin-left: 10px; background: #FF5E5E;">View Premium Sample</a>
-    </div>
-
-    <div class="brand-hero-section">
-        <div class="pillar-card">
-            <h3>Be Found</h3>
-            <p>Give players and parents an elite home to find you, learn your philosophy, and lock in their spot.</p>
+<body class="p-6">
+    <main class="max-w-xl w-full text-center">
+        <h1 class="text-5xl font-black mb-6 text-white leading-tight">Elevate Your Coaching Business.</h1>
+        <p class="text-2xl text-sky-300 mb-8 font-light italic">"As a baseball dad, I saw the chaos of the 'bulletin board' style of coaching. I built the system to fix it."</p>
+        
+        <div class="bg-black/60 backdrop-blur-md border border-slate-700 p-8 rounded-2xl shadow-2xl">
+            <p class="text-slate-100 mb-8 leading-relaxed">
+                You’re an elite coach, but your scheduling system is holding you back. My wife and I spent years navigating the back-and-forth scheduling nightmares—the missed sessions, the text-chain chaos, and the time wasted managing a calendar instead of a career.<br><br>
+                <strong>I built the "Winning Edge" to bring professional-grade systems to your craft.</strong> Stop managing the noise and start scaling your expertise. Let's make your practice as sharp as your coaching.
+            </p>
+            
+            <form id="coach-signup-form" action="/thank-you" method="POST" data-netlify="true" class="space-y-4">
+                <input type="text" name="name" placeholder="Name" required class="w-full bg-slate-900 p-4 rounded-lg border border-slate-600 focus:border-sky-500 outline-none text-white">
+                <input type="email" name="email" placeholder="Email" required class="w-full bg-slate-900 p-4 rounded-lg border border-slate-600 focus:border-sky-500 outline-none text-white">
+                <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-white font-bold py-4 rounded-lg transition transform hover:scale-[1.02] uppercase tracking-widest shadow-lg shadow-sky-500/20">
+                    Claim My FREE Winning Edge Card
+                </button>
+            </form>
         </div>
-        <div class="pillar-card">
-            <h3>Scale Growth</h3>
-            <p>Attract more clients with a digital brand that works 24/7—even when you’re on the field.</p>
-        </div>
-        <div class="pillar-card">
-            <h3>Automate Admin</h3>
-            <p>Ditch the manual scheduling and payment chasers. Reclaim your time to focus on coaching.</p>
-        </div>
-    </div>
-
-    <div class="intake-form">
-        <h2>CLAIM YOUR FREE COACH PAGE</h2>
-        <p>Build your authority, earn more, and stop losing valuable time.</p>
-        <form id="coach-signup-form" action="/success.html" method="POST" data-netlify="true" class="form-grid">
-            <div class="form-field full-width"><label>Full Name</label><input type="text" name="name" required></div>
-            <div class="form-field"><label>Email Address</label><input type="email" name="email" required></div>
-            <div class="form-field"><label>Sport You Coach</label><input type="text" name="sport"></div>
-            <div class="form-field full-width"><label>Headshot File Upload</label><input type="file" name="headshot"></div>
-            <div class="form-field"><label>Coaching Specialty</label><input type="text" name="specialty"></div>
-            <div class="form-field"><label>Team/Club/School</label><input type="text" name="team"></div>
-            <div class="form-field"><label>City/Area for Lessons</label><input type="text" name="city"></div>
-            <div class="form-field"><label>Contact Number</label><input type="text" name="phone"></div>
-            <div class="form-field"><label>Booking Link</label><input type="url" name="booking"></div>
-            <div class="form-field"><label>Payment Handle (Venmo/Zelle)</label><input type="text" name="payment"></div>
-            <div class="form-field"><label>Facebook Bio Link</label><input type="url" name="fb"></div>
-            <div class="form-field"><label>Instagram Bio Link</label><input type="url" name="insta"></div>
-            <div class="form-field"><label>TikTok Link</label><input type="url" name="tiktok"></div>
-            <div class="form-field"><label>Twitter/X Link</label><input type="url" name="twitter"></div>
-            <div class="form-field"><label>YouTube Link</label><input type="url" name="youtube"></div>
-            <div class="form-field full-width"><label>Tell us about you as a player/coach</label><textarea name="bio" rows="4"></textarea></div>
-            <div class="form-field"><label>Years Coaching</label><input type="number" name="years"></div>
-            <div class="form-field"><label>Favorite Sports Team</label><input type="text" name="team_colors"></div>
-            <div class="form-field full-width">
-                <label style="display: flex; align-items: center; gap: 10px;">
-                    <input type="checkbox" name="include_in_directory" checked style="width: auto;"> 
-                    Include me in the "Find My Coach" Directory
-                </label>
-            </div>
-            <button type="submit" class="form-submit-btn">Get Your FREE Winning Edge</button>
-        </form>
-    </div>
+    </main>
 </body>
 </html>
