@@ -3,54 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoachingBio.com | Elevate Your Game</title>
+    <title>The Winning Edge | CoachingBio</title>
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="The Winning Edge | CoachingBio">
+    <meta property="og:description" content="I’m a baseball dad, and I got tired of watching my coach lose money. I built the system to fix it.">
+    <meta property="og:image" content="https://coachingbio.com/assets/winning-edge-social.png">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
-        :root { --primary: #005A9C; --accent: #FFD700; --text: #1a1a1a; }
-        body { font-family: 'Outfit', sans-serif; background: #f0f2f5; color: var(--text); margin: 0; padding: 0; }
-
-        /* Hero */
-        .hero { 
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=2070&auto=format&fit=crop'); 
-            background-size: cover; background-position: center; color: white; text-align: center; padding: 120px 20px; 
+        :root { --accent: #38bdf8; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1517649763964-0c96d59b6991?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .hero h1 { font-size: 4em; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: -2px; }
-        .hero p { font-size: 1.5em; margin: 10px 0 0; color: var(--accent); font-weight: 700; }
-
-        /* Accordion Style FAQ/Modules */
-        .module-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        details { background: white; margin-bottom: 15px; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        summary { font-weight: 800; font-size: 1.2em; cursor: pointer; list-style: none; color: var(--primary); }
-        details p { margin-top: 15px; color: #555; line-height: 1.6; }
-
-        /* Form Embed */
-        .intake-form { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 24px; text-align: center; }
     </style>
 </head>
-<body>
-    <header class="hero">
-        <h1>STOP LOSING SESSIONS</h1>
-        <p>Pro coaching tools for elite coaches.</p>
-    </header>
-
-    <div class="module-container">
-        <details>
-            <summary>♦ Admin Power ($15)</summary>
-            <p>Full TidyCal + Payment setup. Stop chasing Venmo and start booking automatically.</p>
-        </details>
-        <details>
-            <summary>♦ The 9-Pillar Grand Slam ($7.50 ea)</summary>
-            <p>Choose from our library: Recruiting, Mental Game, Nutrition, Practice Plans, and more.</p>
-        </details>
-        <details>
-            <summary>♦ The "Grand Slam" Subscription ($19.99/mo)</summary>
-            <p>Everything we offer. Total hands-free business management. Pay once, own the whole system.</p>
-        </details>
-    </div>
-
-    <div class="intake-form">
-        <h2>Ready to build your profile?</h2>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfBWLvQ0Yc-inmY93KI2JWnILfWVnT2AWYpG7wADECspW1qow/viewform?embedded=true" width="100%" height="800" frameborder="0">Loading…</iframe>
-    </div>
+<body class="p-6">
+    <main class="max-w-xl w-full text-center">
+        <h1 class="text-5xl font-black mb-6 text-white leading-tight">Elevate Your Coaching Business.</h1>
+        <p class="text-2xl text-sky-300 mb-8 font-light italic">"As a baseball dad, I saw the chaos of the 'bulletin board' style of coaching. I built the system to fix it."</p>
+        
+        <div class="bg-black/60 backdrop-blur-md border border-slate-700 p-8 rounded-2xl shadow-2xl">
+            <p class="text-slate-100 mb-8 leading-relaxed">
+                You’re an elite coach, but your scheduling system is holding you back. My wife and I spent years navigating the back-and-forth scheduling nightmares—the missed sessions, the text-chain chaos, and the time wasted managing a calendar instead of a career.<br><br>
+                <strong>I built the "Winning Edge" to bring professional-grade systems to your craft.</strong> Stop managing the noise and start scaling your expertise. Let's make your practice as sharp as your coaching.
+            </p>
+            
+            <form id="coach-signup-form" action="/thank-you" method="POST" data-netlify="true" class="space-y-4">
+                <input type="text" name="name" placeholder="Name" required class="w-full bg-slate-900 p-4 rounded-lg border border-slate-600 focus:border-sky-500 outline-none text-white">
+                <input type="email" name="email" placeholder="Email" required class="w-full bg-slate-900 p-4 rounded-lg border border-slate-600 focus:border-sky-500 outline-none text-white">
+                <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-white font-bold py-4 rounded-lg transition transform hover:scale-[1.02] uppercase tracking-widest shadow-lg shadow-sky-500/20">
+                    Claim My FREE Winning Edge Card
+                </button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
