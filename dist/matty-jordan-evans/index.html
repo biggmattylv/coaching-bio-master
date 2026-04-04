@@ -5,60 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matthew Jordan Evans | CoachingBio.com</title>
     <style>
-        :root { --primary: #005A9C; --accent: #FFD700; --bg: #f4f7f6; --text: #333; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; }
-        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        
-        /* Hero */
-        .hero { text-align: center; margin-bottom: 40px; }
-        .hero h1 { font-size: 2.5em; color: var(--primary); margin: 0; }
-        .hero p { font-size: 1.1em; color: #666; margin: 10px 0 0; }
-        
-        /* Services Section */
-        .services-section { margin-bottom: 40px; }
-        .service-card { border-bottom: 1px solid #eee; padding: 20px 0; }
-        .num { font-weight: 800; color: var(--accent); display: block; margin-bottom: 5px; }
-        .service-card h2 { font-size: 1.2em; margin: 0; }
-        .service-card p { font-size: 0.95em; color: #666; margin: 5px 0 0; }
-        
-        /* About Section */
-        .about { text-align: center; margin-bottom: 40px; }
-        
-        /* Action Area */
-        .actions { display: flex; flex-direction: column; gap: 15px; }
-        .btn { padding: 18px; text-align: center; border: 2px solid var(--primary); border-radius: 8px; text-decoration: none; font-weight: bold; color: var(--primary); transition: 0.3s; }
-        .btn:hover { background: var(--primary); color: white; }
+        :root { --primary: #005A9C; --secondary: #A5ACAF; --white: #FFFFFF; --bg: #f8f9fa; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/field-hero.png'); background-size: cover; background-position: center; color: white; }
+        h1 { margin: 10px 0; font-size: 2em; }
+        .title { color: var(--secondary); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9em; font-weight: bold; }
+        .content { padding: 30px; }
+        .card { background: #fff; border: 1px solid #eee; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+        h2 { color: var(--primary); font-size: 1.2em; border-left: 4px solid var(--primary); padding-left: 10px; margin-top: 0; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .btn { display: block; background: var(--primary); color: white; padding: 12px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 0.8em; margin-bottom: 10px;}
+        .btn-secondary { background: var(--secondary); }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="hero">
-            <h1>Matthew Jordan Evans</h1>
-            <p>Elite Hitting Coach</p>
+        <header class="header">
+            <h1 class="name">Stop Guessing at the Plate.</h1>
+            <p class="title">Master The Elite Swing with Matthew Jordan Evans</p>
         </header>
-        
-        <main>
-            <div class="services-section">
-                <div class="service-card">
-                    <span class="num">01.</span>
-                    <h2>Personal Lessons</h2>
-                    <p>One-on-one cage sessions to refine mechanics.</p>
-                </div>
-                <div class="service-card">
-                    <span class="num">02.</span>
-                    <h2>Group Training</h2>
-                    <p>Dynamic group sessions on hitting fundamentals.</p>
+        <main class="content">
+            <div class="card">
+                <h2>Admin Power Bundle</h2>
+                <p><strong>Stop playing secretary. Start coaching.</strong> I handle the schedule, the payments, and the admin—you handle the field. Claim your command center.</p>
+                <a href="tel:7025265733" class="btn">Claim Your Edge — Book Now</a>
+                <a href="mailto:mj1010101369@gmail.com" class="btn btn-secondary">Get My Command Center</a>
+            </div>
+            <div class="card">
+                <h2>The Winning Edge Modules</h2>
+                <div class="grid">
+                    <a href="#" class="btn">Pitching</a>
+                    <a href="#" class="btn">Hitting</a>
+                    <a href="#" class="btn">Baserunning</a>
+                    <a href="#" class="btn">Baseball IQ</a>
                 </div>
             </div>
-            
-            <div class="about">
-                <h2>About Me</h2>
+            <div class="card">
+                <h2>About</h2>
                 <p>Matthew Evans isn’t just an instructor—he’s a student of the game who lives it daily. A standout utility force for the Las Vegas Titans and Doral Academy, Matthew commands both corners of the infield with elite glove work at 1B and 3B.</p>
-            </div>
-            
-            <div class="actions">
-                <a href="tel:7025265733" class="btn">CALL COACH</a>
-                <a href="mailto:mj1010101369@gmail.com" class="btn">EMAIL COACH</a>
             </div>
         </main>
     </div>

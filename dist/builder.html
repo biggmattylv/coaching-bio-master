@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Page Customizer | CoachingBio</title>
+    <style>
+        body { font-family: 'Roboto', sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+        .builder-layout { display: flex; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .controls { flex: 1; background: #fff; padding: 30px; border-radius: 12px; }
+        .preview { flex: 1; position: sticky; top: 20px; }
+        
+        .form-field { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+
+        /* The Bio-Page Preview */
+        #preview-box { background: white; padding: 40px; border-radius: 20px; min-height: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .style-pro { border-top: 8px solid #002244; }
+        .style-minimal { border-left: 8px solid #002244; }
+        .style-bold { background: #002244 !important; color: white !important; }
+        
+        h2#prev-name { font-size: 2.5em; margin: 0; }
+        p#prev-bio { font-size: 1.1em; line-height: 1.6; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center;">Bio-Page Customizer</h1>
+
+<div class="builder-layout">
+    <div class="controls">
+        <div class="form-field">
+            <label>Name</label>
+            <input type="text" id="name" oninput="update()" placeholder="Enter name...">
+        </div>
+        <div class="form-field">
+            <label>Bio/Philosophy</label>
+            <textarea id="bio" oninput="update()" rows="4" placeholder="Enter coaching philosophy..."></textarea>
+        </div>
+        <div class="form-field">
+            <label>Choose Your Style</label>
+            <select id="style" onchange="update()">
+                <option value="style-pro">Elite Pro (Corporate)</option>
+                <option value="style-minimal">Modern Minimalist</option>
+                <option value="style-bold">Winning Edge (Bold)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="preview">
+        <div id="preview-box" class="style-pro">
+            <h2 id="prev-name">Coach Name</h2>
+            <p id="prev-bio">Your coaching philosophy will appear here...</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function update() {
+        document.getElementById('prev-name').innerText = document.getElementById('name').value || "Coach Name";
+        document.getElementById('prev-bio').innerText = document.getElementById('bio').value || "Your coaching philosophy will appear here...";
+        
+        const box = document.getElementById('preview-box');
+        box.className = document.getElementById('style').value;
+    }
+</script>
+
+</body>
+</html>

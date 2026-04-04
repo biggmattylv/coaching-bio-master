@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Freddie Freeman | Premium Coaching Profile</title>
+    <style>
+        :root { --dodger-blue: #005a9c; --red: #ef3e42; --dark: #111; --box-bg: #1a1a1a; }
+        body { font-family: 'Roboto', sans-serif; background: #000; color: #fff; margin: 0; padding: 20px; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/field-hero.png'); background-size: cover; padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--dodger-blue); border-radius: 20px 20px 0 0; }
+        .container { max-width: 600px; margin: -50px auto 20px; }
+        .module-box { background: var(--box-bg); padding: 25px; border-radius: 15px; margin-bottom: 20px; border: 1px solid #333; }
+        h3 { color: var(--dodger-blue); margin-top: 0; text-transform: uppercase; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 20px 0; }
+        .stat-box { background: #222; padding: 10px; border-radius: 8px; font-weight: bold; text-align: center; }
+        .btn-premium { background: var(--dodger-blue); color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; margin-bottom: 10px; cursor: pointer; text-transform: uppercase; }
+        .social-bar { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <!-- Headshot Placeholder -->
+        <img src="../assets/freddie_freeman.png" alt="Freddie Freeman" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; border: 4px solid var(--dodger-blue); object-fit: cover;">
+        <h1>FREDDIE FREEMAN</h1>
+        <p>1st Base | Elite Power Hitting Coach</p>
+    </div>
+
+    <div class="container">
+        <!-- Philosophy Module -->
+        <div class="module-box" id="philosophy">
+            <h3>The Freeman Approach</h3>
+            <p>Hitting isn't just about bat speed—it's about rhythm, approach, and mental clarity. I teach the same discipline that got me through 15+ years in the Big Leagues. We focus on situational hitting, plate discipline, and staying calm under pressure. My goal is to build athletes who think as fast as they swing.</p>
+        </div>
+
+        <!-- Bio Stats Module -->
+        <div class="module-box" id="stats">
+            <div class="stat-grid">
+                <div class="stat-box">8x All-Star</div>
+                <div class="stat-box">WS Champ</div>
+                <div class="stat-box">MVP</div>
+            </div>
+            <button class="btn-premium">BOOK 1-ON-1 SESSION</button>
+            <button class="btn-premium" style="background:var(--red)">PAY FOR LESSON</button>
+        </div>
+
+        <!-- PDF Library Module -->
+        <div class="module-box" id="library">
+            <h3>Playbooks & Resources</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 10px; border-bottom: 1px solid #333;">📚 2026 Hitting Handbook (PDF)</li>
+                <li style="padding: 10px; border-bottom: 1px solid #333;">📚 Pre-Game Routine Guide (PDF)</li>
+            </ul>
+        </div>
+
+        <!-- Testimonials Module -->
+        <div class="module-box" id="testimonials">
+            <h3>Testimonials</h3>
+            <p>"Freddie's approach to the mental game changed everything for my son. Highly recommend!" — <i>Local Parent</i></p>
+        </div>
+
+        <!-- Gallery Module -->
+        <div class="module-box" id="gallery">
+            <h3>Action Gallery</h3>
+            <div style="background:#222; height:150px; border-radius:8px; display:flex; align-items:center; justify-content:center;">[Image Carousel Placeholder]</div>
+        </div>
+
+        <!-- FAQ Module -->
+        <div class="module-box" id="faq">
+            <h3>FAQ</h3>
+            <p><strong>Do you offer group rates?</strong> Yes, contact me for details.</p>
+        </div>
+
+        <!-- Calendar Module -->
+        <div class="module-box" id="calendar">
+            <h3>Upcoming Clinics</h3>
+            <p>Summer Hitting Camp - June 15th</p>
+            <button class="btn-premium" style="background:#333;">Add to Calendar</button>
+        </div>
+    </div>
+</body>
+</html>

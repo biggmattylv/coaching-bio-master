@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Directory | CoachingBio.com</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        body { font-family: 'Roboto', sans-serif; background: #f8f9fa; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .search-box { width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc; font-size: 1.1em; }
+        .coach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .coach-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .coach-card h3 { margin: 0 0 10px 0; color: #002244; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Coaching Directory</h1>
+        <input type="text" id="search" class="search-box" placeholder="Search by city, state, or name...">
+        <div id="results" class="coach-grid"></div>
+    </div>
+    <script>
+        const coaches = [
+            { "name": "Matthew Evans", "city": "Las Vegas", "state": "NV", "sport": "Baseball", "link": "matthew-evans-card.html" }
+        ];
+        const search = document.getElementById('search');
+        const results = document.getElementById('results');
+
+        function render(data) {
+            results.innerHTML = data.map(c => `
+                <div class="coach-card">
+                    <h3>${c.name}</h3>
+                    <p>${c.city}, ${c.state}</p>
+                    <p>Sport: ${c.sport}</p>
+                    <a href="${c.link}">View Card</a>
+                </div>
+            `).join('');
+        }
+        
+        search.addEventListener('input', e => {
+            const term = e.target.value.toLowerCase();
+            render(coaches.filter(c => c.name.toLowerCase().includes(term) || c.city.toLowerCase().includes(term) || c.state.toLowerCase().includes(term)));
+        });
+        render(coaches);
+    </script>
+</body>
+</html>

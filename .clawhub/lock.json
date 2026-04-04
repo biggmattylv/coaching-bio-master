@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "marketing-designer": {
+      "version": "1.0.0",
+      "installedAt": 1774759314236
+    },
+    "self-improving-proactive-agent": {
+      "version": "1.0.0",
+      "installedAt": 1774759414283
+    },
+    "n8n-workflow-automation": {
+      "version": "1.0.0",
+      "installedAt": 1774759574660
+    },
+    "slack": {
+      "version": "1.0.0",
+      "installedAt": 1774759656652
+    },
+    "elite-frontend-design": {
+      "version": "1.0.0",
+      "installedAt": 1774759728918
+    }
+  }
+}

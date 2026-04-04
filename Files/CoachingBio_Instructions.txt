@@ -1,0 +1,15 @@
+# Master Hub Preview
+
+- **Style 1:** "The Slugger" (Dodger Blue focus)
+- **Style 2:** "The Legend" (Magenta pop focus)
+- **Style 3:** "The Manager" (Minimalist/Clean focus)
+
+## Fisher-Price Instructions for Matty
+
+1. **Click the link:** [CoachingBios.com/preview](https://coachingbio-demos.netlify.app/master-hub)
+2. **Browse:** Scroll through the cards and click on them. They will open a live demo of the coaching page.
+3. **Select:** Reply to this email or send me a text with the name of the style you like best.
+4. **Iterate:** If you want a change (color, module placement), just say the word!
+
+I've built the structure so we can swap themes in seconds.
+EOF
