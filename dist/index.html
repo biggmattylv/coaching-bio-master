@@ -138,6 +138,49 @@
             </div>
             <button type="submit" class="form-submit-btn">Get Your FREE Winning Edge</button>
         </form>
+        <div id="form-success" style="display:none; margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.2); border-radius: 8px;">
+            <h3 style="color: #fff;">You're In!</h3>
+            <p style="color: #fff;">Your Digital Authority Card is being built. Check your email in a few minutes.</p>
+            <a id="view-card-link" href="#" target="_blank" style="color: #fff; font-weight: bold; text-decoration: underline;">View Your Card →</a>
+        </div>
     </div>
+    <script>
+    document.getElementById('coach-signup-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Building Your Card...';
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => { data[key] = value; });
+
+        try {
+            const resp = await fetch('/.netlify/functions/form-submitted', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await resp.json();
+
+            if (result.success) {
+                form.style.display = 'none';
+                const successDiv = document.getElementById('form-success');
+                successDiv.style.display = 'block';
+                document.getElementById('view-card-link').href = result.cardUrl;
+            } else {
+                btn.textContent = 'Get Your FREE Winning Edge';
+                btn.disabled = false;
+                alert('Something went wrong. Please try again.');
+            }
+        } catch (err) {
+            // Fallback to normal form submit
+            form.action = '/success.html';
+            form.method = 'POST';
+            form.submit();
+        }
+    });
+    </script>
 </body>
 </html>
