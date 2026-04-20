@@ -6,7 +6,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Clean URLs — remove .html from URLs
+# Clean URLs
 [[redirects]]
   from = "/charles-card"
   to = "/charles-card.html"
@@ -50,6 +50,21 @@
 [[redirects]]
   from = "/sample"
   to = "/sample-finished.html"
+  status = 200
+
+[[redirects]]
+  from = "/matty-ice"
+  to = "/sample-finished.html"
+  status = 200
+
+[[redirects]]
+  from = "/freeman"
+  to = "/premium-sample-card.html"
+  status = 200
+
+[[redirects]]
+  from = "/success"
+  to = "/success.html"
   status = 200
 
 [[redirects]]
