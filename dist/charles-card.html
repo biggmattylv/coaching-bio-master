@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles Card | CoachingBio.com</title>
+    <meta property="og:title" content="Charles Card | Baseball Coach">
+    <meta property="og:description" content="Baseball Coach — Las Vegas, NV. Hitting, fielding, and game strategy.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #005A9C; --accent: #e94560; --gold: #f5c518; --white: #FFFFFF; --bg: #f8f9fa; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        
+        .header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1200'); background-size: cover; background-position: center; color: white; }
+        h1 { font-size: 2.2em; margin: 0; font-weight: 900; }
+        .title { text-transform: uppercase; letter-spacing: 3px; font-size: 0.85em; font-weight: bold; opacity: 0.9; margin-top: 8px; }
+        .tagline { color: var(--gold); font-size: 0.9em; font-weight: 700; margin-top: 12px; font-style: italic; }
+        
+        .content { padding: 30px; }
+        
+        .card { background: #fff; border: 1px solid #eee; padding: 25px; border-radius: 14px; margin-bottom: 20px; }
+        h2 { color: var(--primary); font-size: 1.1em; border-left: 4px solid var(--accent); padding-left: 12px; margin-top: 0; margin-bottom: 15px; }
+        
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .icon-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f0f4f8; padding: 15px 10px; border-radius: 12px; text-decoration: none; color: #333; font-size: 0.75em; font-weight: bold; transition: all 0.3s; }
+        .icon-btn:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+        .icon-btn svg { width: 28px; height: 28px; margin-bottom: 8px; fill: var(--primary); }
+        .icon-btn:hover svg { fill: white; }
+        
+        .stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; text-align: center; }
+        .stat { background: #f0f4f8; padding: 15px; border-radius: 10px; }
+        .stat-num { font-size: 1.8em; font-weight: 900; color: var(--primary); }
+        .stat-label { font-size: 0.75em; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .specialties { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .specialty { background: linear-gradient(135deg, var(--primary), #0077CC); color: white; padding: 15px 10px; border-radius: 10px; text-align: center; font-size: 0.8em; font-weight: bold; }
+        
+        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .social-btn { display: flex; align-items: center; justify-content: center; background: var(--primary); color: white; padding: 12px; border-radius: 10px; text-decoration: none; font-size: 0.8em; font-weight: bold; transition: all 0.3s; }
+        .social-btn:hover { background: #0077CC; }
+        
+        .btn-book { display: block; background: var(--accent); color: white; padding: 18px; border-radius: 12px; text-align: center; text-decoration: none; font-weight: 900; font-size: 1em; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s; }
+        .btn-book:hover { transform: scale(1.02); box-shadow: 0 5px 20px rgba(233,69,96,0.3); }
+        
+        .about-text { color: #555; font-size: 0.95em; line-height: 1.8; }
+        
+        .footer { text-align: center; padding: 20px; font-size: 0.75em; color: #aaa; }
+        .footer a { color: var(--primary); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Charles Card</h1>
+            <p class="title">Baseball Coach</p>
+            <p class="tagline">"Building Champions On and Off the Field"</p>
+        </header>
+        
+        <main class="content">
+            <div class="card">
+                <h2>Direct Line</h2>
+                <div class="contact-grid">
+                    <a href="tel:+1702XXX1234" class="icon-btn">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        Call
+                    </a>
+                    <a href="sms:+1702XXX1234" class="icon-btn">
+                        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/></svg>
+                        Text
+                    </a>
+                    <a href="mailto:charles@bombsquadbaseball.com" class="icon-btn">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>By The Numbers</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-num">15+</div>
+                        <div class="stat-label">Years Exp</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">100+</div>
+                        <div class="stat-label">Players Coached</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">🏆</div>
+                        <div class="stat-label">Champion</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Specialties</h2>
+                <div class="specialties">
+                    <div class="specialty">Hitting</div>
+                    <div class="specialty">Fielding</div>
+                    <div class="specialty">Game Strategy</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>About Coach Card</h2>
+                <p class="about-text">
+                    Charles Card is a veteran baseball coach based in Las Vegas with over 15 years of experience developing players at all levels. From youth travel ball to adult competitive leagues, Coach Card brings a player-first mentality that focuses on fundamentals, mental toughness, and aggressive approach at the plate.
+                </p>
+                <p class="about-text" style="margin-top: 12px;">
+                    Whether you're a young player looking to get scouted or a veteran looking to sharpen your game, Coach Card's approach is built around one philosophy: when you step in the box, you're there to do damage.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Book a Session</h2>
+                <a href="#" class="btn-book">Schedule With Coach Card</a>
+            </div>
+
+            <div class="card">
+                <h2>Follow Coach Card</h2>
+                <div class="social-grid">
+                    <a href="#" class="social-btn">Instagram</a>
+                    <a href="#" class="social-btn">Facebook</a>
+                    <a href="#" class="social-btn">Twitter/X</a>
+                </div>
+            </div>
+        </main>
+        
+        <div class="footer">
+            Powered by <a href="https://coachingbio.com">CoachingBio.com</a>
+        </div>
+    </div>
+</body>
+</html>
