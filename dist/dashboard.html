@@ -31,15 +31,30 @@
         .status-new { background: #1a472a; color: #4ade80; }
         .status-pending { background: #4a3a1a; color: #fbbf24; }
         .status-live { background: #1a2a4a; color: #60a5fa; }
+        .status-club { background: #4a1a3a; color: #f472b6; }
         
         .btn { display: inline-block; padding: 8px 16px; background: #005A9C; color: white; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: bold; }
         .btn:hover { background: #0077CC; }
+        .btn-accent { background: #d32f2f; }
+        .btn-accent:hover { background: #e53935; }
         
         .tag { display: inline-block; background: #333; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin: 2px; }
+        
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card-preview { background: #111; border: 1px solid #333; border-radius: 12px; overflow: hidden; transition: all 0.3s; }
+        .card-preview:hover { border-color: #005A9C; transform: translateY(-3px); box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
+        .card-preview .card-header { padding: 20px; background: linear-gradient(135deg, #1a1a2e, #16213e); text-align: center; }
+        .card-preview .card-header .emoji { font-size: 2em; margin-bottom: 5px; }
+        .card-preview .card-header h3 { color: #fff; font-size: 1.1em; margin: 0; }
+        .card-preview .card-header .sport { color: #888; font-size: 0.8em; margin-top: 3px; }
+        .card-preview .card-body { padding: 15px; }
+        .card-preview .card-body p { color: #888; font-size: 0.85em; margin-bottom: 10px; }
+        .card-preview .card-actions { display: flex; gap: 8px; }
         
         @media (max-width: 768px) {
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .pipeline { grid-template-columns: repeat(3, 1fr); }
+            .cards-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -55,16 +70,16 @@
             <div class="label">Total Signups</div>
         </div>
         <div class="stat-card">
-            <div class="number" id="today-signups">0</div>
-            <div class="label">Today</div>
-        </div>
-        <div class="stat-card">
             <div class="number" id="cards-live">0</div>
             <div class="label">Cards Live</div>
         </div>
         <div class="stat-card">
-            <div class="number" id="pending-custom">0</div>
-            <div class="label">Pending Customization</div>
+            <div class="number" id="clubs-live">0</div>
+            <div class="label">Club Pages</div>
+        </div>
+        <div class="stat-card">
+            <div class="number" id="mrr">$0</div>
+            <div class="label">MRR</div>
         </div>
     </div>
 
@@ -88,9 +103,16 @@
                 <div class="stage-name">Hall of Fame ($199)</div>
             </div>
             <div class="pipeline-stage">
-                <div class="count" id="mrr">$0</div>
-                <div class="stage-name">MRR</div>
+                <div class="count" id="setup-fees">$0</div>
+                <div class="stage-name">Setup Fees</div>
             </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>All Cards & Pages</h2>
+        <div class="cards-grid" id="cards-grid">
+            <div style="grid-column: 1/-1; text-align: center; color: #666; padding: 40px;">Loading cards...</div>
         </div>
     </div>
 
@@ -102,23 +124,17 @@
                     <th>Name</th>
                     <th>Sport</th>
                     <th>City</th>
+                    <th>Type</th>
                     <th>Status</th>
                     <th>Card</th>
                 </tr>
             </thead>
             <tbody id="recent-signups">
                 <tr>
-                    <td colspan="5" style="text-align: center; color: #666;">No signups yet</td>
+                    <td colspan="6" style="text-align: center; color: #666;">No signups yet</td>
                 </tr>
             </tbody>
         </table>
-    </div>
-
-    <div class="section">
-        <h2>By Sport</h2>
-        <div id="by-sport">
-            <span class="tag">No data yet</span>
-        </div>
     </div>
 
     <div class="section">
@@ -126,17 +142,53 @@
         <a href="https://coachingbio.com" class="btn" target="_blank">View Site</a>
         <a href="#" class="btn" onclick="refreshData()" style="margin-left: 10px;">Refresh Data</a>
         <a href="/directory.html" class="btn" style="margin-left: 10px;">Coach Directory</a>
+        <a href="/bomb-squad-baseball-club.html" class="btn btn-accent" style="margin-left: 10px;" target="_blank">Bomb Squad Club</a>
     </div>
 
     <script>
-        // Load dashboard data
+        // All known cards/pages
+        const allCards = [
+            { name: "Matthew Evans", emoji: "⚾", sport: "Baseball", type: "coach", link: "matthew-evans-card.html", description: "Strategic Performance Coach" },
+            { name: "Coach Mike Johnson", emoji: "⚾", sport: "Baseball", type: "coach", link: "coach-mike-johnson.html", description: "Pitching Coach — 12 years exp" },
+            { name: "Charles Card", emoji: "💣", sport: "Baseball", type: "coach", link: "charles-card-bomb-squad.html", description: "Owner & Head Coach — Bomb Squad" },
+            { name: "Bomb Squad Baseball Club", emoji: "💣⚾", sport: "Baseball", type: "club", link: "bomb-squad-baseball-club.html", description: "Youth 14-18U + Adult NABA Upper Division" },
+            { name: "Matty Ice", emoji: "🧊", sport: "Baseball", type: "sample", link: "sample-finished.html", description: "Sample premium card" },
+            { name: "Freeman Premium", emoji: "⭐", sport: "Baseball", type: "sample", link: "premium-sample-card.html", description: "Premium sample card" }
+        ];
+
+        function renderCards() {
+            const grid = document.getElementById('cards-grid');
+            grid.innerHTML = allCards.map(card => `
+                <div class="card-preview">
+                    <div class="card-header">
+                        <div class="emoji">${card.emoji}</div>
+                        <h3>${card.name}</h3>
+                        <div class="sport">${card.sport} • ${card.type === 'club' ? 'Club Page' : card.type === 'sample' ? 'Sample' : 'Coach Card'}</div>
+                    </div>
+                    <div class="card-body">
+                        <p>${card.description}</p>
+                        <div class="card-actions">
+                            <a href="${card.link}" class="btn" target="_blank">View</a>
+                            <span class="status-badge ${card.type === 'club' ? 'status-club' : card.type === 'sample' ? 'status-pending' : 'status-live'}">${card.type === 'club' ? 'Club' : card.type === 'sample' ? 'Sample' : 'Live'}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Update stats
+            const coaches = allCards.filter(c => c.type === 'coach').length;
+            const clubs = allCards.filter(c => c.type === 'club').length;
+            document.getElementById('cards-live').textContent = coaches;
+            document.getElementById('clubs-live').textContent = clubs;
+            document.getElementById('total-signups').textContent = coaches;
+        }
+
         function refreshData() {
+            renderCards();
+            
             fetch('/coaches.json')
                 .then(r => r.json())
                 .then(coaches => {
-                    document.getElementById('total-signups').textContent = coaches.length;
-                    document.getElementById('cards-live').textContent = coaches.length;
-                    
                     const tbody = document.getElementById('recent-signups');
                     if (coaches.length > 0) {
                         tbody.innerHTML = coaches.slice(-10).reverse().map(c => `
@@ -144,6 +196,7 @@
                                 <td>${c.name}</td>
                                 <td>${c.sport || '—'}</td>
                                 <td>${c.city || '—'}</td>
+                                <td><span class="tag">Coach</span></td>
                                 <td><span class="status-badge status-live">Live</span></td>
                                 <td><a href="${c.link}" class="btn" target="_blank">View</a></td>
                             </tr>
@@ -153,8 +206,9 @@
                 .catch(err => console.log('Data load error:', err));
         }
 
+        renderCards();
         refreshData();
-        setInterval(refreshData, 60000); // Refresh every minute
+        setInterval(refreshData, 60000);
     </script>
 </body>
 </html>
