@@ -19,5 +19,26 @@
     "state": "NV",
     "sport": "Baseball",
     "link": "charles-card-bomb-squad.html"
+  },
+  {
+    "name": "Jackie Robinson",
+    "city": "Brooklyn",
+    "state": "NY",
+    "sport": "Baseball",
+    "link": "jackie-robinson.html"
+  },
+  {
+    "name": "Sandy Koufax",
+    "city": "Los Angeles",
+    "state": "CA",
+    "sport": "Baseball",
+    "link": "sandy-koufax.html"
+  },
+  {
+    "name": "Fernando Valenzuela",
+    "city": "Los Angeles",
+    "state": "CA",
+    "sport": "Baseball",
+    "link": "fernando-valenzuela.html"
   }
 ]
