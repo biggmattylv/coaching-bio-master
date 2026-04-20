@@ -3,46 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coaching Directory | CoachingBio.com</title>
+    <title>Find My Coach | CoachingBio.com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-        body { font-family: 'Roboto', sans-serif; background: #f8f9fa; padding: 20px; }
+        :root { --primary: #002244; --accent: #FF5E5E; --bg: #f4f4f4; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); padding: 20px; }
         .container { max-width: 900px; margin: 0 auto; }
-        .search-box { width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc; font-size: 1.1em; }
-        .coach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .coach-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .coach-card h3 { margin: 0 0 10px 0; color: #002244; }
+        
+        h1 { text-align: center; font-size: 2.2em; color: var(--primary); margin-bottom: 5px; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
+        
+        .search-section { background: white; border-radius: 16px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        
+        .location-bar { display: flex; gap: 10px; margin-bottom: 15px; }
+        .location-bar input { flex: 1; padding: 14px 18px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em; }
+        .location-bar input:focus { border-color: var(--primary); outline: none; }
+        .location-btn { background: var(--primary); color: white; border: none; padding: 14px 20px; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 0.9em; white-space: nowrap; }
+        .location-btn:hover { background: #003366; }
+        
+        .filters { display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
+        .filter-group { display: flex; align-items: center; gap: 8px; }
+        .filter-group label { font-size: 0.85em; color: #666; font-weight: 600; }
+        .filter-group select { padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9em; }
+        
+        .radius-slider { flex: 1; min-width: 200px; }
+        .radius-slider label { font-size: 0.85em; color: #666; font-weight: 600; display: flex; justify-content: space-between; }
+        .radius-slider input[type="range"] { width: 100%; margin-top: 5px; accent-color: var(--primary); }
+        .radius-value { color: var(--primary); font-weight: 700; }
+        
+        .status-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 10px 15px; background: #f0f4f8; border-radius: 8px; }
+        .status-bar .count { font-weight: 700; color: var(--primary); }
+        .status-bar .location { font-size: 0.85em; color: #888; }
+        
+        .coach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .coach-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s; }
+        .coach-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .coach-card .card-header { padding: 25px 20px; background: linear-gradient(135deg, var(--primary), #003366); text-align: center; color: white; }
+        .coach-card .card-header h3 { font-size: 1.2em; margin: 0; }
+        .coach-card .card-header .sport { font-size: 0.8em; opacity: 0.8; margin-top: 3px; }
+        .coach-card .card-body { padding: 20px; }
+        .coach-card .card-body p { color: #666; font-size: 0.9em; margin-bottom: 5px; }
+        .coach-card .card-body .distance { color: var(--accent); font-weight: 700; font-size: 0.85em; }
+        .coach-card .view-btn { display: block; background: var(--primary); color: white; padding: 12px; text-align: center; text-decoration: none; font-weight: 700; font-size: 0.85em; margin: 0 15px 15px; border-radius: 8px; }
+        .coach-card .view-btn:hover { background: var(--accent); }
+        
+        .no-results { text-align: center; padding: 60px 20px; color: #888; }
+        .no-results h3 { color: var(--primary); margin-bottom: 10px; }
+        
+        .footer { text-align: center; padding: 30px; color: #aaa; font-size: 0.8em; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        
+        @media (max-width: 600px) {
+            .location-bar { flex-direction: column; }
+            .filters { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Coaching Directory</h1>
-        <input type="text" id="search" class="search-box" placeholder="Search by city, state, or name...">
+        <h1>Find My Coach</h1>
+        <p class="subtitle">Search for coaches near you — by name, sport, or location</p>
+        
+        <div class="search-section">
+            <div class="location-bar">
+                <input type="text" id="search" placeholder="Search by name, sport, or city...">
+                <button class="location-btn" onclick="getLocation()">📍 Near Me</button>
+            </div>
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Sport:</label>
+                    <select id="sport-filter" onchange="applyFilters()">
+                        <option value="">All Sports</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>State:</label>
+                    <select id="state-filter" onchange="applyFilters()">
+                        <option value="">All States</option>
+                    </select>
+                </div>
+                <div class="radius-slider">
+                    <label>Radius: <span class="radius-value" id="radius-display">50 miles</span></label>
+                    <input type="range" id="radius" min="5" max="200" value="50" oninput="updateRadius()">
+                </div>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <span class="count" id="result-count">Loading...</span>
+            <span class="location" id="user-location">Search by location or name</span>
+        </div>
+        
         <div id="results" class="coach-grid"></div>
     </div>
-    <script>
-        const coaches = [
-            { "name": "Matthew Evans", "city": "Las Vegas", "state": "NV", "sport": "Baseball", "link": "matthew-evans-card.html" }
-        ];
-        const search = document.getElementById('search');
-        const results = document.getElementById('results');
 
-        function render(data) {
-            results.innerHTML = data.map(c => `
+    <script>
+        // City coordinates database (lat, lng)
+        const cityCoords = {
+            'las vegas': { lat: 36.1699, lng: -115.1398 },
+            'henderson': { lat: 36.0395, lng: -114.9817 },
+            'north las vegas': { lat: 36.1989, lng: -115.1175 },
+            'summerlin': { lat: 36.1699, lng: -115.2599 },
+            'los angeles': { lat: 34.0522, lng: -118.2437 },
+            'san diego': { lat: 32.7157, lng: -117.1611 },
+            'phoenix': { lat: 33.4484, lng: -112.0740 },
+            'brooklyn': { lat: 40.6782, lng: -73.9442 },
+            'new york': { lat: 40.7128, lng: -74.0060 },
+            'chicago': { lat: 41.8781, lng: -87.6298 },
+            'san francisco': { lat: 37.7749, lng: -122.4194 },
+            'denver': { lat: 39.7392, lng: -104.9903 },
+            'dallas': { lat: 32.7767, lng: -96.7970 },
+            'miami': { lat: 25.7617, lng: -80.1918 },
+            'austin': { lat: 30.2672, lng: -97.7431 },
+            'seattle': { lat: 47.6062, lng: -122.3321 },
+            'portland': { lat: 45.5152, lng: -122.6784 },
+        };
+
+        let allCoaches = [];
+        let userLat = null;
+        let userLng = null;
+
+        // Haversine formula for distance
+        function getDistance(lat1, lng1, lat2, lng2) {
+            const R = 3959; // Earth radius in miles
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLng = (lng2 - lng1) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLng/2) * Math.sin(dLng/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return Math.round(R * c);
+        }
+
+        // Get coach coordinates from city
+        function getCoachCoords(coach) {
+            const cityKey = (coach.city || '').toLowerCase();
+            const coords = cityCoords[cityKey];
+            if (coords) return coords;
+            // Default to Las Vegas if no match
+            return { lat: 36.1699, lng: -115.1398 };
+        }
+
+        // Load coaches
+        async function loadCoaches() {
+            try {
+                const resp = await fetch('/coaches.json');
+                allCoaches = await resp.json();
+            } catch {
+                allCoaches = [
+                    { name: "Matthew Evans", city: "Las Vegas", state: "NV", sport: "Baseball", link: "matthew-evans-card.html" },
+                    { name: "Charles Card", city: "Las Vegas", state: "NV", sport: "Baseball", link: "charles-card.html" },
+                    { name: "Coach Mike Johnson", city: "Las Vegas", state: "NV", sport: "Baseball", link: "coach-mike-johnson.html" },
+                ];
+            }
+            populateFilters();
+            render(allCoaches);
+        }
+
+        // Populate filter dropdowns
+        function populateFilters() {
+            const sports = [...new Set(allCoaches.map(c => c.sport).filter(Boolean))].sort();
+            const states = [...new Set(allCoaches.map(c => c.state).filter(Boolean))].sort();
+            
+            const sportSelect = document.getElementById('sport-filter');
+            sports.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s; opt.textContent = s;
+                sportSelect.appendChild(opt);
+            });
+            
+            const stateSelect = document.getElementById('state-filter');
+            states.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s; opt.textContent = s;
+                stateSelect.appendChild(opt);
+            });
+        }
+
+        // Get user location via browser geolocation
+        function getLocation() {
+            const btn = document.querySelector('.location-btn');
+            btn.textContent = '📍 Locating...';
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    pos => {
+                        userLat = pos.coords.latitude;
+                        userLng = pos.coords.longitude;
+                        document.getElementById('user-location').textContent = `Near ${userLat.toFixed(2)}, ${userLng.toFixed(2)}`;
+                        btn.textContent = '📍 Found!';
+                        applyFilters();
+                    },
+                    err => {
+                        btn.textContent = '📍 Near Me';
+                        alert('Location access denied. Try searching by city name.');
+                    }
+                );
+            } else {
+                alert('Geolocation not supported. Try searching by city name.');
+            }
+        }
+
+        // Update radius display
+        function updateRadius() {
+            const radius = document.getElementById('radius').value;
+            document.getElementById('radius-display').textContent = radius + ' miles';
+            applyFilters();
+        }
+
+        // Apply all filters
+        function applyFilters() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const sport = document.getElementById('sport-filter').value;
+            const state = document.getElementById('state-filter').value;
+            const radius = parseInt(document.getElementById('radius').value);
+
+            let filtered = allCoaches.filter(c => {
+                // Text search
+                if (searchTerm) {
+                    const match = (c.name || '').toLowerCase().includes(searchTerm) ||
+                                  (c.city || '').toLowerCase().includes(searchTerm) ||
+                                  (c.state || '').toLowerCase().includes(searchTerm) ||
+                                  (c.sport || '').toLowerCase().includes(searchTerm);
+                    if (!match) return false;
+                }
+                // Sport filter
+                if (sport && c.sport !== sport) return false;
+                // State filter
+                if (state && c.state !== state) return false;
+                return true;
+            });
+
+            // Add distance if user location is set
+            if (userLat && userLng) {
+                filtered = filtered.map(c => {
+                    const coords = getCoachCoords(c);
+                    c.distance = getDistance(userLat, userLng, coords.lat, coords.lng);
+                    return c;
+                }).filter(c => c.distance <= radius)
+                  .sort((a, b) => a.distance - b.distance);
+            }
+
+            render(filtered);
+        }
+
+        // Render coaches
+        function render(coaches) {
+            const results = document.getElementById('results');
+            document.getElementById('result-count').textContent = `${coaches.length} coach${coaches.length !== 1 ? 'es' : ''} found`;
+
+            if (coaches.length === 0) {
+                results.innerHTML = `
+                    <div class="no-results" style="grid-column: 1/-1;">
+                        <h3>No coaches found</h3>
+                        <p>Try expanding your search radius or removing filters</p>
+                    </div>`;
+                return;
+            }
+
+            results.innerHTML = coaches.map(c => `
                 <div class="coach-card">
-                    <h3>${c.name}</h3>
-                    <p>${c.city}, ${c.state}</p>
-                    <p>Sport: ${c.sport}</p>
-                    <a href="${c.link}">View Card</a>
+                    <div class="card-header">
+                        <h3>${c.name}</h3>
+                        <div class="sport">${c.sport || 'Coach'}</div>
+                    </div>
+                    <div class="card-body">
+                        <p>📍 ${c.city || ''}${c.state ? ', ' + c.state : ''}</p>
+                        ${c.distance !== undefined ? `<p class="distance">📏 ${c.distance} miles away</p>` : ''}
+                    </div>
+                    <a href="${c.link}" class="view-btn">View Card</a>
                 </div>
             `).join('');
         }
-        
-        search.addEventListener('input', e => {
-            const term = e.target.value.toLowerCase();
-            render(coaches.filter(c => c.name.toLowerCase().includes(term) || c.city.toLowerCase().includes(term) || c.state.toLowerCase().includes(term)));
-        });
-        render(coaches);
+
+        // Text search listener
+        document.getElementById('search').addEventListener('input', applyFilters);
+
+        // Init
+        loadCoaches();
     </script>
 </body>
 </html>
