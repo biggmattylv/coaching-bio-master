@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomb Squad Baseball Club | Las Vegas, NV</title>
+    <meta property="og:title" content="Bomb Squad Baseball Club | Las Vegas, NV">
+    <meta property="og:description" content="From the Youth Circuit to the Big Diamonds — We Crush. Las Vegas Valley's premier baseball club for 14-18U Select and Adult NABA.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #1a1a2e; --accent: #d32f2f; --gold: #f5c518; --white: #FFFFFF; --bg: #0a0a0f; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: #e0e0e0; }
+        
+        .hero { text-align: center; padding: 100px 20px 80px; background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0f 100%); position: relative; overflow: hidden; }
+        .hero::before { content: '💣'; position: absolute; font-size: 300px; opacity: 0.03; top: -50px; right: -50px; }
+        .hero-logo { font-size: 80px; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5em; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; color: var(--white); text-shadow: 0 0 40px rgba(211,47,47,0.3); }
+        .hero h1 span { color: var(--accent); }
+        .hero .tagline { font-size: 1.3em; color: var(--gold); font-weight: 700; margin-top: 15px; text-transform: uppercase; letter-spacing: 3px; }
+        .hero .subtitle { font-size: 1em; color: #888; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .section { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .section-title { font-size: 2em; font-weight: 900; text-transform: uppercase; text-align: center; margin-bottom: 15px; color: var(--white); }
+        .section-title span { color: var(--accent); }
+        .section-sub { text-align: center; color: #888; font-size: 1em; margin-bottom: 40px; }
+        
+        .program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+        .program-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 40px 30px; text-align: center; transition: all 0.3s; }
+        .program-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 40px rgba(211,47,47,0.1); }
+        .program-icon { font-size: 50px; margin-bottom: 15px; }
+        .program-card h3 { font-size: 1.5em; color: var(--gold); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; }
+        .program-card .ages { color: var(--accent); font-weight: 700; font-size: 0.9em; margin-bottom: 15px; }
+        .program-card p { color: #aaa; font-size: 0.95em; line-height: 1.7; }
+        .program-card ul { text-align: left; margin-top: 15px; padding-left: 20px; }
+        .program-card li { color: #ccc; margin-bottom: 8px; font-size: 0.9em; }
+        
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .why-card { background: rgba(211,47,47,0.05); border: 1px solid rgba(211,47,47,0.2); border-radius: 16px; padding: 30px 20px; text-align: center; }
+        .why-card .icon { font-size: 40px; margin-bottom: 10px; }
+        .why-card h4 { color: var(--gold); font-size: 1em; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        .why-card p { color: #999; font-size: 0.85em; line-height: 1.6; }
+        
+        .quote-section { text-align: center; padding: 60px 40px; background: rgba(211,47,47,0.05); border-radius: 20px; margin: 40px 0; border: 1px solid rgba(211,47,47,0.1); }
+        .quote-text { font-size: 1.3em; color: #ddd; font-style: italic; line-height: 1.8; max-width: 700px; margin: 0 auto 20px; }
+        .quote-author { color: var(--gold); font-weight: 700; font-size: 0.9em; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .trophy-section { text-align: center; padding: 40px; background: linear-gradient(135deg, rgba(245,197,24,0.1) 0%, rgba(211,47,47,0.1) 100%); border-radius: 20px; margin: 40px 0; border: 1px solid rgba(245,197,24,0.2); }
+        .trophy-section h3 { color: var(--gold); font-size: 1.8em; margin-bottom: 10px; }
+        .trophy-section p { color: #ccc; }
+        
+        .cta-section { text-align: center; padding: 80px 20px; background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 100%); }
+        .cta-section h2 { font-size: 2.5em; color: var(--white); font-weight: 900; text-transform: uppercase; margin-bottom: 15px; }
+        .cta-section p { color: #888; font-size: 1em; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 20px 50px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 1.2em; text-transform: uppercase; letter-spacing: 3px; transition: all 0.3s; box-shadow: 0 5px 30px rgba(211,47,47,0.3); }
+        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 10px 40px rgba(211,47,47,0.5); }
+        
+        .footer { text-align: center; padding: 30px; font-size: 0.8em; color: #444; border-top: 1px solid #1a1a2e; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2em; }
+            .program-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-logo">💣⚾</div>
+        <h1><span>Bomb Squad</span> Baseball</h1>
+        <p class="tagline">From the Youth Circuit to the Big Diamonds — We Crush.</p>
+        <p class="subtitle">Las Vegas Valley's premier baseball club for elite youth development and championship-caliber adult wood bat play.</p>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">Our <span>Programs</span></h2>
+        <p class="section-sub">Two divisions. One mission. Drop Bombs.</p>
+        
+        <div class="program-grid">
+            <div class="program-card">
+                <div class="program-icon">⚾</div>
+                <h3>Youth Select</h3>
+                <p class="ages">14U – 18U</p>
+                <p>We scout and assemble the most explosive talent from across the Las Vegas Valley for high-level tournament play.</p>
+                <ul>
+                    <li>Top-tier regional tournaments</li>
+                    <li>High school & college prep</li>
+                    <li>Aggressive hitting philosophy</li>
+                    <li>Hand-picked valley-wide roster</li>
+                </ul>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🏆</div>
+                <h3>Adult NABA</h3>
+                <p class="ages">18+ Upper Division</p>
+                <p>For the lifers who still have the itch to compete at a professional standard with wood bats.</p>
+                <ul>
+                    <li>Winter/Spring Champions</li>
+                    <li>Promoted to Upper Division</li>
+                    <li>Wood bat competition</li>
+                    <li>Owner/Manager plays on roster</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="trophy-section">
+            <h3>🏆 2026 Winter/Spring Champions</h3>
+            <p>Bomb Squad dominated the NABA Lower Division and earned promotion to the Upper Division.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Why <span>Bomb Squad</span>?</h2>
+        <p class="section-sub">We bridge the gap between youth development and adult excellence.</p>
+        
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="icon">💣</div>
+                <h4>The Philosophy</h4>
+                <p>Our name says it all. We preach aggressive hitting, disciplined approaches, and the power to Drop Bombs.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon">🌵</div>
+                <h4>Valley-Wide</h4>
+                <p>We assemble players from every corner of the Las Vegas Valley to create powerhouse lineups.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon">🔥</div>
+                <h4>All Levels</h4>
+                <p>From 14U prospects to adult veterans, we develop players who compete at the highest levels.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="quote-section">
+            <p class="quote-text">"We aren't just a team; we're a culture. Whether you're a 15-year-old looking to get scouted or a veteran looking to add more hardware to the trophy case, if you can swing it, you belong with us."</p>
+            <p class="quote-author">— Charles, Owner/Manager/Player</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Join The Squad</h2>
+        <p>Ready to take your hacks with the best in the Valley? Fill out our prospect form and Sophie, our Club Coordinator, will get back to you regarding roster spots, schedules, and tryouts.</p>
+        <a href="#join-form" class="cta-btn" onclick="document.getElementById('join-form').style.display='block'; this.style.display='none'; return false;">Get On The Radar</a>
+        
+        <div id="join-form" style="display:none; max-width: 500px; margin: 30px auto 0; text-align: left;">
+            <form style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; color: var(--gold); font-size: 0.85em; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Full Name *</label>
+                    <input type="text" name="name" required style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(0,0,0,0.3); color: #fff; font-size: 1em;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; color: var(--gold); font-size: 0.85em; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Email *</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(0,0,0,0.3); color: #fff; font-size: 1em;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; color: var(--gold); font-size: 0.85em; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Phone</label>
+                    <input type="tel" name="phone" style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(0,0,0,0.3); color: #fff; font-size: 1em;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; color: var(--gold); font-size: 0.85em; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Division *</label>
+                    <select name="division" required style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(0,0,0,0.3); color: #fff; font-size: 1em;">
+                        <option value="">Select Division</option>
+                        <option value="youth_select">Youth Select (14U-18U)</option>
+                        <option value="adult_naba">Adult NABA (18+)</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; color: var(--gold); font-size: 0.85em; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Primary Position *</label>
+                    <select name="position" required style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(0,0,0,0.3); color: #fff; font-size: 1em;">
+                        <option value="">Select Position</option>
+                        <option value="P">Pitcher (P)</option>
+                        <option value="C">Catcher (C)</option>
+                        <option value="1B">First Base (1B)</option>
+                        <option value="2B">Second Base (2B)</option>
+                        <option value="3B">Third Base (3B)</option>
+                        <option value="SS">Shortstop (SS)</option>
+                        <option value="LF">Left Field (LF)</option>
+                        <option value="CF">Center Field (CF)</option>
+                        <option value="RF">Right Field (RF)</option>
+                        <option value="DH">Designated Hitter (DH)</option>
+                        <option value="UTIL">Utility</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; color: var(--gold); font-size: 0.85em; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">The "Bomb" Factor *</label>
+                    <textarea name="bomb_factor" rows="3" required placeholder="Tell us about your experience — e.g., 'Varsity Starter at Centennial', 'Ex-college player', '5 years NABA experience'" style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(0,0,0,0.3); color: #fff; font-size: 1em; resize: vertical;"></textarea>
+                </div>
+                <button type="submit" style="width: 100%; background: var(--accent); color: white; padding: 15px; border: none; border-radius: 8px; font-weight: 900; font-size: 1em; text-transform: uppercase; letter-spacing: 2px; cursor: pointer;">Submit Prospect Form</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        Bomb Squad Baseball Club — Las Vegas, NV<br>
+        Powered by <a href="https://coachingbio.com">CoachingBio.com</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2026-04-19T21:25:38.991561",
+    "name": "Charles Card",
+    "email": "charles@bombsquadbaseball.com",
+    "sport": "Baseball",
+    "phone": "702-XXX-1234",
+    "city": "Las Vegas",
+    "status": "free_card",
+    "card_url": "https://coachingbio.com/charles-card.html",
+    "notes": "Guinea pig \u2014 doing everything free to show value. Owner of Bomb Squad 14-16U & Adult 18+.",
+    "last_contact": "2026-04-19T21:25:38.991576",
+    "customizations_requested": [],
+    "upgrade_offered": false,
+    "upgrade_date": null
+  }
+]
