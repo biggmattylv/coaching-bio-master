@@ -2,24 +2,11 @@ plugins = []
 headers = []
 redirects = []
 
-[functions]
-
-[functions."*"]
-
 [build]
-publish = "C:\\Users\\Sophie\\.openclaw\\workspace\\CoachingBio.com\\CoachingBio.com\\dist"
-publishOrigin = "config"
+publish = "dist"
 
 [build.environment]
+NODE_VERSION = "18"
 
-[build.processing]
-
-[build.processing.css]
-
-[build.processing.html]
-
-[build.processing.images]
-
-[build.processing.js]
-
-[build.services]
+[functions]
+  directory = "netlify/functions"
