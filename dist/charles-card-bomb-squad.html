@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles Card | CoachingBio.com</title>
+    <meta property="og:title" content="Charles Card | Bomb Squad Baseball">
+    <meta property="og:description" content="Owner & Head Coach — Bomb Squad Baseball. 14-16U & Adult 18+. Las Vegas, NV.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #1a1a2e; --accent: #e94560; --gold: #f5c518; --white: #FFFFFF; --bg: #0f0f1a; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: #fff; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: #16213e; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
+        
+        .header { text-align: center; padding: 60px 20px 40px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); position: relative; }
+        .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent)); }
+        
+        .team-logo { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--gold); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background: #0f0f1a; font-size: 3em; }
+        h1 { font-size: 2.2em; margin: 0; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
+        .team-name { color: var(--gold); font-size: 1.1em; font-weight: 700; margin: 8px 0; text-transform: uppercase; letter-spacing: 3px; }
+        .title { color: #aaa; font-size: 0.9em; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
+        .tagline { color: var(--accent); font-size: 0.85em; font-weight: 700; margin-top: 15px; font-style: italic; }
+        
+        .content { padding: 30px; }
+        
+        .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 16px; margin-bottom: 20px; }
+        h2 { color: var(--gold); font-size: 1em; text-transform: uppercase; letter-spacing: 3px; border-left: 4px solid var(--accent); padding-left: 12px; margin-top: 0; margin-bottom: 15px; }
+        
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .icon-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); padding: 15px 10px; border-radius: 12px; text-decoration: none; color: #fff; font-size: 0.75em; font-weight: bold; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.1); }
+        .icon-btn:hover { background: var(--accent); transform: translateY(-2px); }
+        .icon-btn svg { width: 28px; height: 28px; margin-bottom: 8px; fill: var(--gold); }
+        
+        .division-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .division-card { background: rgba(233,69,96,0.1); border: 1px solid rgba(233,69,96,0.3); padding: 20px; border-radius: 12px; text-align: center; }
+        .division-card h3 { color: var(--accent); font-size: 1.1em; margin: 0 0 5px; }
+        .division-card p { color: #aaa; font-size: 0.85em; margin: 0; }
+        
+        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .social-btn { display: flex; align-items: center; justify-content: center; background: var(--accent); color: white; padding: 12px; border-radius: 10px; text-decoration: none; font-size: 0.8em; font-weight: bold; transition: all 0.3s; }
+        .social-btn:hover { background: #c73e54; transform: scale(1.02); }
+        
+        .btn-book { display: block; background: linear-gradient(135deg, var(--accent), #c73e54); color: white; padding: 18px; border-radius: 12px; text-align: center; text-decoration: none; font-weight: 900; font-size: 1em; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s; }
+        .btn-book:hover { transform: scale(1.02); box-shadow: 0 5px 20px rgba(233,69,96,0.4); }
+        
+        .about-text { color: #ccc; font-size: 0.95em; line-height: 1.8; }
+        
+        .footer { text-align: center; padding: 20px; font-size: 0.75em; color: #555; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="team-logo">💣</div>
+            <h1>Charles Card</h1>
+            <p class="team-name">Bomb Squad Baseball</p>
+            <p class="title">Owner & Head Coach</p>
+            <p class="tagline">"Building Champions On and Off the Field"</p>
+        </header>
+        
+        <main class="content">
+            <div class="card">
+                <h2>Get In Touch</h2>
+                <div class="contact-grid">
+                    <a href="tel:+1702XXX1234" class="icon-btn">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        Call
+                    </a>
+                    <a href="sms:+1702XXX1234" class="icon-btn">
+                        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/></svg>
+                        Text
+                    </a>
+                    <a href="mailto:charles@bombsquadbaseball.com" class="icon-btn">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Our Divisions</h2>
+                <div class="division-grid">
+                    <div class="division-card">
+                        <h3>14-16U</h3>
+                        <p>Competitive Travel Ball</p>
+                    </div>
+                    <div class="division-card">
+                        <h3>Adult 18+</h3>
+                        <p>Men's Competitive League</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>About Coach Card</h2>
+                <p class="about-text">
+                    Charles Card is the owner and head coach of Bomb Squad Baseball, one of Las Vegas' premier competitive baseball programs. With divisions for both youth (14-16U) and adult (18+) players, Bomb Squad develops athletes who compete at the highest levels.
+                </p>
+                <p class="about-text" style="margin-top: 15px;">
+                    Coach Card's philosophy centers on building complete players — strong fundamentals, mental toughness, and the competitive drive that separates good players from great ones. His teams are known for their discipline, hustle, and never-quit attitude.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Follow Bomb Squad</h2>
+                <div class="social-grid">
+                    <a href="#" class="social-btn">Instagram</a>
+                    <a href="#" class="social-btn">Facebook</a>
+                    <a href="#" class="social-btn">Twitter/X</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Join The Squad</h2>
+                <a href="#" class="btn-book">Tryout Information</a>
+            </div>
+        </main>
+        
+        <div class="footer">
+            Powered by <a href="https://coachingbio.com">CoachingBio.com</a>
+        </div>
+    </div>
+</body>
+</html>
