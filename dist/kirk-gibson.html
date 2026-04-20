@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirk Gibson | CoachingBio.com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #002D62; --accent: #EF4135; --cream: #F5F1E8; --gold: #C9A96E; }
+        body { font-family: 'Roboto', sans-serif; background: var(--cream); margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: var(--cream); border: 3px solid var(--primary); border-radius: 0; overflow: hidden; box-shadow: 8px 8px 0 var(--primary); }
+        
+        .header { background: var(--primary); padding: 40px 20px; text-align: center; position: relative; }
+        .header::before { content: '⚾'; position: absolute; font-size: 150px; opacity: 0.1; top: -30px; right: -20px; }
+        .jersey-number { font-family: 'Bebas Neue', sans-serif; font-size: 80px; color: var(--accent); line-height: 1; text-shadow: 3px 3px 0 rgba(0,0,0,0.3); }
+        h1 { font-family: 'Bebas Neue', sans-serif; font-size: 2.8em; color: var(--cream); margin: 0; letter-spacing: 4px; }
+        .title { color: var(--gold); font-size: 0.85em; text-transform: uppercase; letter-spacing: 3px; margin-top: 5px; font-weight: 700; }
+        
+        .content { padding: 30px; }
+        .card { border: 2px solid var(--primary); padding: 20px; margin-bottom: 20px; background: white; position: relative; }
+        .card::before { content: ''; position: absolute; top: -5px; left: 20px; right: 20px; height: 5px; background: var(--accent); }
+        h2 { font-family: 'Bebas Neue', sans-serif; color: var(--primary); font-size: 1.4em; letter-spacing: 2px; margin-top: 0; }
+        
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .icon-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--primary); color: var(--cream); padding: 15px 10px; text-decoration: none; font-size: 0.75em; font-weight: bold; transition: all 0.3s; }
+        .icon-btn:hover { background: var(--accent); }
+        .icon-btn svg { width: 24px; height: 24px; margin-bottom: 8px; fill: var(--cream); }
+        
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; }
+        .stat { border: 1px solid var(--primary); padding: 12px 8px; }
+        .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.8em; color: var(--accent); }
+        .stat-label { font-size: 0.65em; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+        
+        .quote { background: var(--primary); color: var(--cream); padding: 25px; text-align: center; font-style: italic; font-size: 1.1em; line-height: 1.6; margin: 20px 0; position: relative; }
+        .quote::before { content: '"'; font-family: 'Bebas Neue', sans-serif; font-size: 60px; color: var(--accent); position: absolute; top: 5px; left: 15px; opacity: 0.5; }
+        
+        .btn-book { display: block; background: var(--accent); color: white; padding: 18px; text-align: center; text-decoration: none; font-family: 'Bebas Neue', sans-serif; font-size: 1.3em; letter-spacing: 3px; transition: all 0.3s; }
+        .btn-book:hover { background: var(--primary); }
+        
+        .footer { text-align: center; padding: 15px; font-size: 0.7em; color: var(--primary); border-top: 2px solid var(--primary); }
+        .footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="jersey-number">#23</div>
+            <h1>KIRK GIBSON</h1>
+            <p class="title">Hitting & Mental Game Coach</p>
+        </header>
+        <main class="content">
+            <div class="card">
+                <h2>DIRECT LINE</h2>
+                <div class="contact-grid">
+                    <a href="#" class="icon-btn"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>CALL</a>
+                    <a href="#" class="icon-btn"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/></svg>TEXT</a>
+                    <a href="#" class="icon-btn"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>EMAIL</a>
+                </div>
+            </div>
+            <div class="card">
+                <h2>BY THE NUMBERS</h2>
+                <div class="stats">
+                    <div class="stat"><div class="stat-num">.268</div><div class="stat-label">AVG</div></div>
+                    <div class="stat"><div class="stat-num">255</div><div class="stat-label">HR</div></div>
+                    <div class="stat"><div class="stat-num">870</div><div class="stat-label">RBI</div></div>
+                    <div class="stat"><div class="stat-num">2x</div><div class="stat-label">MVP</div></div>
+                </div>
+            </div>
+            <div class="quote">"The day I stop giving 110% is the day I start dying."</div>
+            <div class="card">
+                <h2>ABOUT COACH GIBSON</h2>
+                <p style="color:#555; line-height:1.8;">Two-time World Series champion. The man who limped to the plate and changed history. Coach Gibson teaches players to compete with everything they have — broken body or not. His approach is built on mental toughness, clutch hitting, and the refusal to give an inch.</p>
+            </div>
+            <a href="#" class="btn-book">SCHEDULE WITH COACH GIBSON</a>
+        </main>
+        <div class="footer">Powered by <a href="https://coachingbio.com">CoachingBio.com</a> — STYLE: VINTAGE CARD</div>
+    </div>
+</body>
+</html>
