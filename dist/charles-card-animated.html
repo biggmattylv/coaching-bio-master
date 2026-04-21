@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles Card | CoachingBio.com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #1a1a2e; --accent: #e94560; --gold: #f5c518; --comic-yellow: #ffe135; --comic-red: #ff3b3b; --comic-blue: #0055ff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #0a0a0f; overflow-x: hidden; }
+        
+        /* ANIMATED BACKGROUND */
+        .bg-field { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; 
+            background: radial-gradient(ellipse at 50% 80%, #1a472a 0%, #0a0a0f 60%); }
+        .bg-field::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 200%; height: 40%; background: repeating-linear-gradient(90deg, transparent, transparent 48px, rgba(255,255,255,0.03) 48px, rgba(255,255,255,0.03) 50px); }
+        
+        /* FLOATING BASEBALLS */
+        .floating-ball { position: fixed; font-size: 30px; opacity: 0.1; z-index: 1; animation: float 8s ease-in-out infinite; pointer-events: none; }
+        .floating-ball:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .floating-ball:nth-child(2) { top: 30%; right: 8%; animation-delay: 2s; font-size: 20px; }
+        .floating-ball:nth-child(3) { top: 60%; left: 10%; animation-delay: 4s; font-size: 25px; }
+        .floating-ball:nth-child(4) { top: 80%; right: 15%; animation-delay: 6s; font-size: 35px; }
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(180deg); } }
+        
+        /* MAIN CONTAINER */
+        .container { position: relative; z-index: 10; max-width: 600px; margin: 0 auto; padding: 20px; }
+        
+        /* HERO WITH BAT SWING ANIMATION */
+        .hero { text-align: center; padding: 60px 20px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(233,69,96,0.1) 0%, transparent 100%); }
+        
+        /* COMIC SPEECH BUBBLE */
+        .speech-bubble { position: relative; background: var(--comic-yellow); color: #000; padding: 20px 30px; 
+            border-radius: 30px; display: inline-block; font-family: 'Bangers', cursive; font-size: 1.3em; 
+            letter-spacing: 2px; margin-bottom: 20px; box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+            animation: pulse-bubble 2s ease-in-out infinite; }
+        .speech-bubble::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+            border: 15px solid transparent; border-top-color: var(--comic-yellow); }
+        @keyframes pulse-bubble { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+        
+        /* NAME WITH ANIMATED UNDERLINE */
+        h1 { font-family: 'Bangers', cursive; font-size: 3.5em; color: white; letter-spacing: 4px; 
+            text-shadow: 3px 3px 0 var(--accent), 6px 6px 0 rgba(0,0,0,0.3); position: relative; }
+        h1::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 4px; 
+            background: var(--gold); animation: underline-grow 1.5s ease-out forwards; animation-delay: 0.5s; }
+        @keyframes underline-grow { to { width: 100%; } }
+        
+        .title { font-family: 'Bangers', cursive; color: var(--gold); font-size: 1.2em; letter-spacing: 5px; margin-top: 15px; }
+        
+        /* BAT SWING ANIMATION */
+        .bat-container { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); z-index: 5; }
+        .bat { font-size: 80px; transform-origin: bottom center; animation: swing-bat 3s ease-in-out infinite; }
+        @keyframes swing-bat { 
+            0% { transform: rotate(-45deg); } 
+            15% { transform: rotate(30deg); } 
+            20% { transform: rotate(25deg); }
+            25%, 100% { transform: rotate(-45deg); } 
+        }
+        
+        /* BALL FLYING AFTER HIT */
+        .ball-hit { position: absolute; top: 40%; left: 60%; font-size: 25px; opacity: 0; 
+            animation: ball-fly 3s ease-out infinite; animation-delay: 0.3s; }
+        @keyframes ball-fly { 
+            0% { opacity: 0; transform: translate(0, 0) scale(1); }
+            15% { opacity: 1; }
+            100% { opacity: 0; transform: translate(200px, -150px) scale(0.5); } 
+        }
+        
+        /* CARDS WITH SCROLL REVEAL */
+        .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); 
+            border-radius: 20px; padding: 30px; margin-bottom: 25px; backdrop-filter: blur(10px);
+            opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+        .card.visible { opacity: 1; transform: translateY(0); }
+        .card:hover { border-color: var(--accent); box-shadow: 0 0 30px rgba(233,69,96,0.2); }
+        
+        .card h2 { font-family: 'Bangers', cursive; color: var(--gold); font-size: 1.3em; letter-spacing: 3px; 
+            border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 20px; }
+        
+        /* CONTACT BUTTONS WITH HOVER EFFECT */
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .icon-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.1); padding: 18px 10px; 
+            border-radius: 16px; text-decoration: none; color: #fff; font-size: 0.75em; font-weight: 700;
+            transition: all 0.3s; position: relative; overflow: hidden; }
+        .icon-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; 
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: 0.5s; }
+        .icon-btn:hover::before { left: 100%; }
+        .icon-btn:hover { background: var(--accent); border-color: var(--accent); transform: scale(1.05); 
+            box-shadow: 0 5px 20px rgba(233,69,96,0.4); }
+        .icon-btn svg { width: 28px; height: 28px; margin-bottom: 8px; fill: var(--gold); transition: 0.3s; }
+        .icon-btn:hover svg { fill: white; }
+        
+        /* STATS WITH COUNTER ANIMATION */
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center; }
+        .stat { background: rgba(233,69,96,0.1); border: 1px solid rgba(233,69,96,0.3); padding: 20px 15px; border-radius: 16px; }
+        .stat-num { font-family: 'Bangers', cursive; font-size: 2.5em; color: var(--gold); 
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3); }
+        .stat-label { font-size: 0.7em; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
+        
+        /* SPECIALTIES WITH LIGHT-UP EFFECT */
+        .specialties { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .specialty { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); 
+            padding: 12px 24px; border-radius: 100px; font-size: 0.85em; font-weight: 700; color: #888;
+            transition: all 0.4s; opacity: 0; transform: scale(0.8); }
+        .specialty.lit { opacity: 1; transform: scale(1); background: var(--accent); color: white; 
+            border-color: var(--accent); box-shadow: 0 0 20px rgba(233,69,96,0.5); }
+        
+        /* COMIC ACTION LINES */
+        .action-lines { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; overflow: hidden; }
+        .action-line { position: absolute; background: var(--gold); opacity: 0; }
+        .action-line.active { animation: zap 0.5s ease-out forwards; }
+        @keyframes zap { 0% { opacity: 0; width: 0; } 50% { opacity: 0.6; } 100% { opacity: 0; width: 200px; } }
+        
+        /* CTA WITH PULSE */
+        .btn-book { display: block; background: linear-gradient(135deg, var(--accent), #c73e54); color: white; 
+            padding: 22px; border-radius: 16px; text-align: center; text-decoration: none; 
+            font-family: 'Bangers', cursive; font-size: 1.3em; letter-spacing: 3px; 
+            box-shadow: 0 5px 25px rgba(233,69,96,0.4); animation: cta-pulse 2s ease-in-out infinite;
+            transition: all 0.3s; }
+        .btn-book:hover { transform: scale(1.05); box-shadow: 0 10px 40px rgba(233,69,96,0.6); }
+        @keyframes cta-pulse { 0%, 100% { box-shadow: 0 5px 25px rgba(233,69,96,0.4); } 50% { box-shadow: 0 5px 40px rgba(233,69,96,0.7); } }
+        
+        /* ABOUT TEXT */
+        .about-text { color: #aaa; font-size: 0.95em; line-height: 1.8; }
+        
+        /* FOOTER */
+        .footer { text-align: center; padding: 30px; font-size: 0.7em; color: #444; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        
+        /* POWERED BY ANIMATION */
+        .powered-by { display: inline-block; animation: glow 3s ease-in-out infinite; }
+        @keyframes glow { 0%, 100% { text-shadow: 0 0 5px rgba(233,69,96,0.3); } 50% { text-shadow: 0 0 20px rgba(233,69,96,0.8); } }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5em; }
+            .bat-container { display: none; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- FLOATING BASEBALLS -->
+    <div class="floating-ball">⚾</div>
+    <div class="floating-ball">⚾</div>
+    <div class="floating-ball">⚾</div>
+    <div class="floating-ball">⚾</div>
+    
+    <div class="bg-field"></div>
+    
+    <div class="container">
+        <!-- HERO -->
+        <header class="hero">
+            <div class="bat-container">
+                <div class="bat">🏏</div>
+                <div class="ball-hit">⚾</div>
+            </div>
+            <div class="speech-bubble">LET'S GO! 💪</div>
+            <h1>CHARLES CARD</h1>
+            <p class="title">⚾ BASEBALL COACH ⚾</p>
+        </header>
+
+        <!-- CONTACT -->
+        <div class="card" data-reveal>
+            <h2>📞 GET IN TOUCH</h2>
+            <div class="contact-grid">
+                <a href="https://coachingbio.com/" target="_blank" class="icon-btn">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    CALL
+                </a>
+                <a href="https://coachingbio.com/" target="_blank" class="icon-btn">
+                    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/></svg>
+                    TEXT
+                </a>
+                <a href="https://coachingbio.com/" target="_blank" class="icon-btn">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    EMAIL
+                </a>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="card" data-reveal>
+            <h2>📊 BY THE NUMBERS</h2>
+            <div class="stats">
+                <div class="stat"><div class="stat-num" data-count="15">0</div><div class="stat-label">Years Exp</div></div>
+                <div class="stat"><div class="stat-num" data-count="100">0</div><div class="stat-label">Players Coached</div></div>
+                <div class="stat"><div class="stat-num">🏆</div><div class="stat-label">Champion</div></div>
+            </div>
+        </div>
+
+        <!-- SPECIALTIES -->
+        <div class="card" data-reveal>
+            <h2>⚡ SPECIALTIES</h2>
+            <div class="specialties">
+                <span class="specialty" data-delay="0">HITTING</span>
+                <span class="specialty" data-delay="200">FIELDING</span>
+                <span class="specialty" data-delay="400">GAME STRATEGY</span>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <div class="card" data-reveal>
+            <h2>📝 ABOUT COACH CARD</h2>
+            <p class="about-text">Charles Card is a veteran baseball coach based in Las Vegas with over 15 years of experience developing players at all levels. From youth travel ball to adult competitive leagues, Coach Card brings a player-first mentality that focuses on fundamentals, mental toughness, and aggressive approach at the plate.</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="card" data-reveal>
+            <h2>🎯 BOOK A SESSION</h2>
+            <a href="https://coachingbio.com/" target="_blank" class="btn-book">⚾ SCHEDULE WITH COACH CARD ⚾</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span class="powered-by">Powered by <a href="https://coachingbio.com" target="_blank">CoachingBio.com</a></span>
+    </div>
+
+    <script>
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Light up specialties with delay
+                    const specialties = entry.target.querySelectorAll('.specialty');
+                    specialties.forEach(s => {
+                        const delay = parseInt(s.dataset.delay) || 0;
+                        setTimeout(() => s.classList.add('lit'), delay);
+                    });
+                    
+                    // Counter animation for stats
+                    const counters = entry.target.querySelectorAll('[data-count]');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.dataset.count);
+                        let current = 0;
+                        const increment = target / 30;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                counter.textContent = target + '+';
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current);
+                            }
+                        }, 50);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
