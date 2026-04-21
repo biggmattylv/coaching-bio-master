@@ -40,5 +40,19 @@
     "state": "CA",
     "sport": "Baseball",
     "link": "fernando-valenzuela.html"
+  },
+  {
+    "name": "Miguel Gomez",
+    "city": "Las Vegas",
+    "state": "NV",
+    "sport": "Baseball",
+    "link": "miguel-gomez.html"
+  },
+  {
+    "name": "Josh Gomez",
+    "city": "Las Vegas",
+    "state": "NV",
+    "sport": "Baseball",
+    "link": "josh-gomez.html"
   }
 ]
