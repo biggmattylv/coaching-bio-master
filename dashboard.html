@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoachingBio Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #0a0a0a; color: #e0e0e0; padding: 20px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { font-size: 2.5em; color: #005A9C; }
+        .header p { color: #888; margin-top: 5px; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
+        .stat-card { background: #1a1a1a; border-radius: 12px; padding: 25px; text-align: center; border: 1px solid #333; }
+        .stat-card .number { font-size: 3em; font-weight: 900; color: #005A9C; }
+        .stat-card .label { font-size: 0.9em; color: #888; margin-top: 5px; }
+        
+        .section { background: #1a1a1a; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #333; }
+        .section h2 { color: #005A9C; margin-bottom: 15px; font-size: 1.3em; }
+        
+        .pipeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+        .pipeline-stage { background: #111; border-radius: 8px; padding: 15px; text-align: center; }
+        .pipeline-stage .count { font-size: 2em; font-weight: 900; }
+        .pipeline-stage .stage-name { font-size: 0.8em; color: #888; margin-top: 5px; }
+        
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 10px; color: #888; border-bottom: 1px solid #333; font-size: 0.85em; }
+        td { padding: 10px; border-bottom: 1px solid #222; }
+        .status-badge { padding: 3px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; }
+        .status-new { background: #1a472a; color: #4ade80; }
+        .status-pending { background: #4a3a1a; color: #fbbf24; }
+        .status-live { background: #1a2a4a; color: #60a5fa; }
+        .status-club { background: #4a1a3a; color: #f472b6; }
+        
+        .btn { display: inline-block; padding: 8px 16px; background: #005A9C; color: white; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: bold; }
+        .btn:hover { background: #0077CC; }
+        .btn-accent { background: #d32f2f; }
+        .btn-accent:hover { background: #e53935; }
+        
+        .tag { display: inline-block; background: #333; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin: 2px; }
+        
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card-preview { background: #111; border: 1px solid #333; border-radius: 12px; overflow: hidden; transition: all 0.3s; }
+        .card-preview:hover { border-color: #005A9C; transform: translateY(-3px); box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
+        .card-preview .card-header { padding: 20px; background: linear-gradient(135deg, #1a1a2e, #16213e); text-align: center; }
+        .card-preview .card-header .emoji { font-size: 2em; margin-bottom: 5px; }
+        .card-preview .card-header h3 { color: #fff; font-size: 1.1em; margin: 0; }
+        .card-preview .card-header .sport { color: #888; font-size: 0.8em; margin-top: 3px; }
+        .card-preview .card-body { padding: 15px; }
+        .card-preview .card-body p { color: #888; font-size: 0.85em; margin-bottom: 10px; }
+        .card-preview .card-actions { display: flex; gap: 8px; }
+        
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .pipeline { grid-template-columns: repeat(3, 1fr); }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>COACHINGBIO.COM</h1>
+        <p>Digital Authority Cards for Youth Sports Coaches</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="number" id="total-signups">0</div>
+            <div class="label">Total Signups</div>
+        </div>
+        <div class="stat-card">
+            <div class="number" id="cards-live">0</div>
+            <div class="label">Cards Live</div>
+        </div>
+        <div class="stat-card">
+            <div class="number" id="clubs-live">0</div>
+            <div class="label">Club Pages</div>
+        </div>
+        <div class="stat-card">
+            <div class="number" id="mrr">$0</div>
+            <div class="label">MRR</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Revenue Pipeline</h2>
+        <div class="pipeline">
+            <div class="pipeline-stage">
+                <div class="count" id="free-tier">0</div>
+                <div class="stage-name">Free (Rookie)</div>
+            </div>
+            <div class="pipeline-stage">
+                <div class="count" id="warm-leads">0</div>
+                <div class="stage-name">Warm Leads</div>
+            </div>
+            <div class="pipeline-stage">
+                <div class="count" id="allstar">0</div>
+                <div class="stage-name">All-Star ($19.99)</div>
+            </div>
+            <div class="pipeline-stage">
+                <div class="count" id="hof">0</div>
+                <div class="stage-name">Hall of Fame ($199)</div>
+            </div>
+            <div class="pipeline-stage">
+                <div class="count" id="setup-fees">$0</div>
+                <div class="stage-name">Setup Fees</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>All Cards & Pages</h2>
+        <div class="cards-grid" id="cards-grid">
+            <div style="grid-column: 1/-1; text-align: center; color: #666; padding: 40px;">Loading cards...</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Recent Signups</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Sport</th>
+                    <th>City</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Card</th>
+                </tr>
+            </thead>
+            <tbody id="recent-signups">
+                <tr>
+                    <td colspan="6" style="text-align: center; color: #666;">No signups yet</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Quick Actions</h2>
+        <a href="https://coachingbio.com" class="btn" target="_blank">View Site</a>
+        <a href="#" class="btn" onclick="refreshData()" style="margin-left: 10px;">Refresh Data</a>
+        <a href="/directory.html" class="btn" style="margin-left: 10px;">Coach Directory</a>
+        <a href="/bomb-squad-baseball-club.html" class="btn btn-accent" style="margin-left: 10px;" target="_blank">Bomb Squad Club</a>
+    </div>
+
+    <script>
+        // All known cards/pages
+        const allCards = [
+            { name: "Matthew Evans", emoji: "⚾", sport: "Baseball", type: "coach", link: "/matthew-evans", description: "Strategic Performance Coach" },
+            { name: "Coach Mike Johnson", emoji: "⚾", sport: "Baseball", type: "coach", link: "/coach-mike-johnson", description: "Pitching Coach — 12 years exp" },
+            { name: "Charles Card", emoji: "⚾", sport: "Baseball", type: "coach", link: "/charles-card", description: "Baseball Coach — Hitting, Fielding, Strategy" },
+            { name: "Bomb Squad Baseball Club", emoji: "💣⚾", sport: "Baseball", type: "club", link: "/bomb-squad-baseball-club", description: "Youth 14-18U + Adult NABA Upper Division" },
+            { name: "Matty Ice", emoji: "🧊", sport: "Baseball", type: "sample", link: "/sample", description: "STYLE: Classic" },
+            { name: "Freeman Premium", emoji: "⭐", sport: "Baseball", type: "sample", link: "/freeman", description: "STYLE: Premium" },
+            { name: "Jackie Robinson", emoji: "42", sport: "Baseball", type: "sample", link: "/jackie-robinson.html", description: "STYLE: Standard" },
+            { name: "Sandy Koufax", emoji: "⚾", sport: "Baseball", type: "sample", link: "/sandy-koufax.html", description: "STYLE: Standard" },
+            { name: "Fernando Valenzuela", emoji: "🇲🇽", sport: "Baseball", type: "sample", link: "/fernando-valenzuela.html", description: "STYLE: Standard" },
+            { name: "Kirk Gibson", emoji: "💪", sport: "Baseball", type: "sample", link: "/kirk-gibson.html", description: "STYLE: Vintage Card" },
+            { name: "Shohei Ohtani", emoji: "🇯🇵", sport: "Baseball", type: "sample", link: "/shohei-ohtani.html", description: "STYLE: Modern Dark" },
+            { name: "Mookie Betts", emoji: "👑", sport: "Baseball", type: "sample", link: "/mookie-betts.html", description: "STYLE: Premium Royal" },
+
+            { name: "Miguel Gomez", emoji: "⚙️", sport: "Baseball", type: "coach", link: "/miguel-gomez.html", description: "Head Coach | The Meadows School" },
+            { name: "Josh Gomez", emoji: "⭐", sport: "Baseball", type: "coach", link: "/josh-gomez.html", description: "Assistant Coach | Flying Hawaiians" }
+
+
+        ];
+
+        function renderCards() {
+            const grid = document.getElementById('cards-grid');
+            grid.innerHTML = allCards.map(card => `
+                <div class="card-preview">
+                    <div class="card-header">
+                        <div class="emoji">${card.emoji}</div>
+                        <h3>${card.name}</h3>
+                        <div class="sport">${card.sport} • ${card.type === 'club' ? 'Club Page' : card.type === 'sample' ? 'Sample' : 'Coach Card'}</div>
+                    </div>
+                    <div class="card-body">
+                        <p>${card.description}</p>
+                        <div class="card-actions">
+                            <a href="${card.link}" class="btn" target="_blank">View</a>
+                            <span class="status-badge ${card.type === 'club' ? 'status-club' : card.type === 'sample' ? 'status-pending' : 'status-live'}">${card.type === 'club' ? 'Club' : card.type === 'sample' ? 'Sample' : 'Live'}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Update stats
+            const coaches = allCards.filter(c => c.type === 'coach').length;
+            const clubs = allCards.filter(c => c.type === 'club').length;
+            document.getElementById('cards-live').textContent = coaches;
+            document.getElementById('clubs-live').textContent = clubs;
+            document.getElementById('total-signups').textContent = coaches;
+        }
+
+        function refreshData() {
+            renderCards();
+            
+            fetch('/coaches.json')
+                .then(r => r.json())
+                .then(coaches => {
+                    const tbody = document.getElementById('recent-signups');
+                    if (coaches.length > 0) {
+                        tbody.innerHTML = coaches.slice(-10).reverse().map(c => `
+                            <tr>
+                                <td>${c.name}</td>
+                                <td>${c.sport || '—'}</td>
+                                <td>${c.city || '—'}</td>
+                                <td><span class="tag">Coach</span></td>
+                                <td><span class="status-badge status-live">Live</span></td>
+                                <td><a href="${c.link}" class="btn" target="_blank">View</a></td>
+                            </tr>
+                        `).join('');
+                    }
+                })
+                .catch(err => console.log('Data load error:', err));
+        }
+
+        renderCards();
+        refreshData();
+        setInterval(refreshData, 60000);
+    </script>
+</body>
+</html>

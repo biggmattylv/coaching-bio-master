@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shohei Ohtani | CoachingBio.com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #002D62; --accent: #EF4135; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: linear-gradient(180deg, #111 0%, #0a0a0a 100%); border-radius: 24px; overflow: hidden; border: 1px solid #222; }
+        
+        .header { padding: 60px 30px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #001a3d 100%); position: relative; }
+        .header::after { content: '二刀流'; position: absolute; bottom: 15px; right: 20px; font-size: 14px; color: rgba(255,255,255,0.2); letter-spacing: 5px; }
+        .avatar { width: 100px; height: 100px; border-radius: 50%; background: var(--accent); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 800; border: 3px solid rgba(255,255,255,0.3); }
+        h1 { font-size: 2em; font-weight: 800; letter-spacing: -1px; }
+        .title { color: rgba(255,255,255,0.6); font-size: 0.85em; margin-top: 5px; font-weight: 300; }
+        
+        .content { padding: 30px; }
+        
+        .pill-row { display: flex; gap: 8px; margin-bottom: 25px; flex-wrap: wrap; }
+        .pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 100px; font-size: 0.75em; font-weight: 600; color: rgba(255,255,255,0.8); }
+        .pill-accent { background: var(--accent); border-color: var(--accent); color: white; }
+        
+        .stats-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 25px; }
+        .stat-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; text-align: center; }
+        .stat-card .label { font-size: 0.7em; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+        .stat-card .value { font-size: 2em; font-weight: 800; color: var(--accent); }
+        .stat-card .sub { font-size: 0.7em; color: rgba(255,255,255,0.5); margin-top: 3px; }
+        
+        .section { margin-bottom: 25px; }
+        .section-title { font-size: 0.7em; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
+        .section p { color: rgba(255,255,255,0.7); font-size: 0.9em; line-height: 1.8; font-weight: 300; }
+        
+        .contact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .contact-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 10px; text-decoration: none; color: #fff; font-size: 0.7em; font-weight: 600; transition: all 0.3s; }
+        .contact-btn:hover { background: var(--accent); border-color: var(--accent); }
+        .contact-btn svg { width: 24px; height: 24px; margin-bottom: 8px; fill: rgba(255,255,255,0.7); }
+        
+        .cta { display: block; background: var(--accent); color: white; padding: 18px; border-radius: 16px; text-align: center; text-decoration: none; font-weight: 800; font-size: 0.9em; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; transition: all 0.3s; }
+        .cta:hover { transform: scale(1.02); box-shadow: 0 5px 30px rgba(239,65,53,0.3); }
+        
+        .footer { text-align: center; padding: 20px; font-size: 0.65em; color: rgba(255,255,255,0.3); }
+        .footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="avatar">17</div>
+            <h1>Shohei Ohtani</h1>
+            <p class="title">Two-Way Player & Coach</p>
+        </header>
+        <main class="content">
+            <div class="pill-row">
+                <span class="pill pill-accent">Hitting</span>
+                <span class="pill pill-accent">Pitching</span>
+                <span class="pill">Power</span>
+                <span class="pill">Speed</span>
+                <span class="pill">Two-Way Training</span>
+            </div>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="label">Batting</div>
+                    <div class="value">.274</div>
+                    <div class="sub">171 HR / 437 RBI</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Pitching</div>
+                    <div class="value">3.01</div>
+                    <div class="sub">ERA / 608 K's</div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-title">ABOUT</div>
+                <p>The most complete player in baseball history. Shohei Ohtani redefined what's possible by dominating as both a hitter and pitcher at the elite level. His training methods combine Japanese discipline with modern analytics — and he's ready to share them with the next generation.</p>
+            </div>
+            <div class="contact-row">
+                <a href="https://coachingbio.com/" target="_blank" class="contact-btn"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Call</a>
+                <a href="https://coachingbio.com/" target="_blank" class="contact-btn"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/></svg>Text</a>
+                <a href="https://coachingbio.com/" target="_blank" class="contact-btn"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Email</a>
+            </div>
+            <a href="https://coachingbio.com/" target="_blank" class="cta">Book a Session</a>
+        </main>
+        <div class="footer">Powered by <a href="https://coachingbio.com" target="_blank">CoachingBio.com</a> — STYLE: MODERN DARK</div>
+    </div>
+</body>
+</html>

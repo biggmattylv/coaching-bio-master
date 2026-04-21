@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Coaching | CoachingBio.com</title>
+    <style>
+        :root { --dodger-blue: #005A9C; --silver: #A5ACAF; --white: #FFFFFF; --bg: #f8f9fa; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #eee; }
+        
+        .header { text-align: center; padding: 80px 20px; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/Screenshot 2026-03-22 214025.png'); background-size: cover; background-position: center; color: var(--white); }
+        .profile-pic { width: 140px; height: 140px; border-radius: 50%; border: 5px solid var(--white); box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-bottom: 15px; }
+        h1 { margin: 10px 0 5px; font-size: 2em; letter-spacing: -0.5px; }
+        .title { color: var(--silver); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: 0.85em; }
+        
+        .content { padding: 30px; }
+        .card { background: #fff; border: 1px solid #eee; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        h2 { color: var(--dodger-blue); font-size: 1.2em; margin-top: 0; border-left: 4px solid var(--dodger-blue); padding-left: 10px; }
+        .bio { line-height: 1.7; color: #555; }
+        
+        .btn { display: block; background: var(--dodger-blue); color: white; padding: 16px; border-radius: 10px; text-align: center; text-decoration: none; font-weight: bold; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,90,156,0.2); transition: transform 0.2s; }
+        .btn:hover { transform: translateY(-2px); }
+        
+        footer { text-align: center; padding: 30px; color: var(--silver); font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header" style="position: relative;">
+            <!-- Logo Top Left -->
+            <div style="position: absolute; top: 10px; left: 10px;">
+                <img src="../assets/logo.png" alt="CoachingBio.com Logo" style="width: 80px; height: auto;">
+            </div>
+            
+            <!-- Hero Stack (Centered) -->
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                <h1 class="name" style="margin: 0;">Coach Name</h1>
+                <p class="title" style="margin: 5px 0 20px;">Elite Athletic Instruction</p>
+                
+                <!-- Buttons Center Under Hero -->
+                <div style="display: flex; gap: 10px;">
+                    <a href="tel:+15551234567" style="background: white; color: var(--dodger-blue); padding: 8px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.8em; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">CALL</a>
+                    <a href="sms:+15551234567" style="background: white; color: var(--dodger-blue); padding: 8px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.8em; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">TEXT</a>
+                    <a href="mailto:me@mattysells.vegas" style="background: white; color: var(--dodger-blue); padding: 8px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.8em; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">EMAIL</a>
+                </div>
+            </div>
+        </header>
+        <main class="content">
+            <div class="card">
+                <h2>Free Resources</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <a href="#" class="btn" style="margin: 0; padding: 12px; font-size: 0.8em;">Recruiting Roadmap (PDF)</a>
+                    <a href="#" class="btn" style="margin: 0; padding: 12px; font-size: 0.8em;">Daily Routine (PDF)</a>
+                    <a href="#" class="btn" style="margin: 0; padding: 12px; font-size: 0.8em;">Nutrition Guide (PDF)</a>
+                    <a href="#" class="btn" style="margin: 0; padding: 12px; font-size: 0.8em;">Mental Game (PDF)</a>
+                    <a href="#" class="btn" style="margin: 0; padding: 12px; font-size: 0.8em;">Equipment List (PDF)</a>
+                    <a href="#" class="btn" style="margin: 0; padding: 12px; font-size: 0.8em;">Coach Protocol (PDF)</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Experience</h2>
+                <ul style="padding-left: 20px; line-height: 1.8;">
+                    <li><strong>9U:</strong> SN</li>
+                    <li><strong>11U:</strong> LV Athletics</li>
+                    <li><strong>12U Tigers:</strong> Player</li>
+                    <li><strong>13U Dawgs:</strong> Player</li>
+                    <li><strong>14U GBG:</strong> Player</li>
+                    <li><strong>16U/18U Titans:</strong> Player</li>
+                    <li><strong>Doral Dragons HS:</strong> Player</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>The Approach</h2>
+                <p class="bio">Matthew Evans isn’t just an instructor—he’s a student of the game who lives it daily. A standout utility force for the Las Vegas Titans and Doral Academy, Matthew commands both corners of the infield with elite glove work at 1B and 3B. Known for massive power and exceptional barrel control, he is a perennial threat at the plate. Currently expanding his dominance, he is actively integrating advanced pitching mechanics into his arsenal.<br><br>What sets Matthew apart is his ability to bridge the gap between high-level theory and on-field execution. He turns complex mechanics into intuitive, actionable drills that resonate with young athletes. Matthew brings a rare combination of fresh perspective, relentless energy, and deep technical knowledge. He doesn't just teach the game—he mentors his athletes to become the best versions of themselves, ensuring their success lasts well beyond the diamond.</p>
+            </div>
+        </main>
+        <footer>
+            <p>CoachingBio.com | Elevate Your Game</p>
+        </footer>
+    </div>
+</body>
+</html>
