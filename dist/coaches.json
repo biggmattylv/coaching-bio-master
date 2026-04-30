@@ -1,58 +1,66 @@
 [
-  {
-    "name": "Matthew Evans",
-    "city": "Las Vegas",
-    "state": "NV",
-    "sport": "Baseball",
-    "link": "matthew-evans-card.html"
-  },
-  {
-    "name": "Coach Mike Johnson",
-    "city": "Las Vegas",
-    "state": "NV",
-    "sport": "Baseball",
-    "link": "coach-mike-johnson.html"
-  },
-  {
-    "name": "Charles Card",
-    "city": "Las Vegas",
-    "state": "NV",
-    "sport": "Baseball",
-    "link": "charles-card-bomb-squad.html"
-  },
-  {
-    "name": "Jackie Robinson",
-    "city": "Brooklyn",
-    "state": "NY",
-    "sport": "Baseball",
-    "link": "jackie-robinson.html"
-  },
-  {
-    "name": "Sandy Koufax",
-    "city": "Los Angeles",
-    "state": "CA",
-    "sport": "Baseball",
-    "link": "sandy-koufax.html"
-  },
-  {
-    "name": "Fernando Valenzuela",
-    "city": "Los Angeles",
-    "state": "CA",
-    "sport": "Baseball",
-    "link": "fernando-valenzuela.html"
-  },
-  {
-    "name": "Miguel Gomez",
-    "city": "Las Vegas",
-    "state": "NV",
-    "sport": "Baseball",
-    "link": "miguel-gomez.html"
-  },
-  {
-    "name": "Josh Gomez",
-    "city": "Las Vegas",
-    "state": "NV",
-    "sport": "Baseball",
-    "link": "josh-gomez.html"
-  }
+    {
+        "name": "Matthew Evans",
+        "city": "Las Vegas",
+        "state": "NV",
+        "sport": "Baseball",
+        "link": "matthew-evans-card.html"
+    },
+    {
+        "name": "Coach Mike Johnson",
+        "city": "Las Vegas",
+        "state": "NV",
+        "sport": "Baseball",
+        "link": "coach-mike-johnson.html"
+    },
+    {
+        "name": "Charles Card",
+        "city": "Las Vegas",
+        "state": "NV",
+        "sport": "Baseball",
+        "link": "charles-card-bomb-squad.html"
+    },
+    {
+        "name": "Jackie Robinson",
+        "city": "Brooklyn",
+        "state": "NY",
+        "sport": "Baseball",
+        "link": "jackie-robinson.html"
+    },
+    {
+        "name": "Sandy Koufax",
+        "city": "Los Angeles",
+        "state": "CA",
+        "sport": "Baseball",
+        "link": "sandy-koufax.html"
+    },
+    {
+        "name": "Fernando Valenzuela",
+        "city": "Los Angeles",
+        "state": "CA",
+        "sport": "Baseball",
+        "link": "fernando-valenzuela.html"
+    },
+    {
+        "name": "Miguel Gomez",
+        "city": "Las Vegas",
+        "state": "NV",
+        "sport": "Baseball",
+        "link": "miguel-gomez.html"
+    },
+    {
+        "name": "Josh Gomez",
+        "city": "Las Vegas",
+        "state": "NV",
+        "sport": "Baseball",
+        "link": "josh-gomez.html"
+    },
+    {
+        "name": "Max Muncy",
+        "sport": "Baseball",
+        "city": "Los Angeles",
+        "type": "Coach",
+        "status": "Live",
+        "card_url": "/max-muncy.html"
+    }
 ]
